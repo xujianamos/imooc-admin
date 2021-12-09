@@ -2,7 +2,7 @@
  * @Author: xujian
  * @Date: 2021-12-07 10:57:32
  * @LastEditors: xujian
- * @LastEditTime: 2021-12-09 10:43:29
+ * @LastEditTime: 2021-12-09 14:42:19
  * @Description:项目入口文件
  * @FilePath: \imooc-admin\src\main.js
  */
@@ -13,6 +13,10 @@ import store from './store'
 import installElementPlus from './plugins/element'
 // 导入全局样式
 import './styles/index.scss'
+
+// 导入 svgIcon
+import installIcons from '@/icons'
 const app = createApp(App)
 installElementPlus(app)
+installIcons(app)
 app.use(store).use(router).mount('#app')
