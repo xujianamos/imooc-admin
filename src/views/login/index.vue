@@ -2,7 +2,7 @@
  * @Author: xujian
  * @Date: 2021-12-09 09:20:21
  * @LastEditors: xujian
- * @LastEditTime: 2021-12-09 17:57:13
+ * @LastEditTime: 2021-12-13 17:57:29
  * @Description: 登录页面
  * @FilePath: \imooc-admin\src\views\login\index.vue
 -->
@@ -24,22 +24,25 @@
         <span class="svg-container">
           <svg-icon icon="password"></svg-icon>
         </span>
-        <el-input placeholder="password" name="password" v-model="loginForm.password"></el-input>
+        <el-input placeholder="password" name="password" v-model="loginForm.password" :type="passwordType"></el-input>
         <span class="show-pwd">
-          <svg-icon icon="eye"></svg-icon>
+          <svg-icon :icon="passwordType === 'password' ? 'eye' : 'eye-open'" @click="onChangePwdType"></svg-icon>
         </span>
       </el-form-item>
       <!-- 登录按钮 -->
-      <el-button type="primary" style="width: 100%; margin-bottom: 30px"></el-button>
+      <el-button type="primary" style="width: 100%; margin-bottom: 30px" :loading="loading" @click="handleLogin"
+        >登录</el-button
+      >
     </el-form>
   </div>
 </template>
 
 <script setup>
 // 导入的组件可以直接使用
-import SvgIcon from '@/components/SvgIcon'
+// import SvgIcon from '@/components/SvgIcon'
 import { validatePassword } from './rules'
 import { ref } from 'vue'
+import { useStore } from 'vuex'
 // 数据源
 const loginForm = ref({
   username: 'super-admin',
@@ -62,6 +65,39 @@ const loginRules = ref({
     }
   ]
 })
+// 处理密码框文本显示状态
+const passwordType = ref('password')
+// template 中绑定的方法，直接声明即可
+const onChangePwdType = () => {
+  // 当passwordType 的值为password的时候，改为text
+  // 使用 ref 声明的数据，在script中使用时，需要加value来获取具体的值，但是在template中使用时，不需要加value
+  if (passwordType.value === 'password') {
+    passwordType.value = 'text'
+  } else {
+    passwordType.value = 'password'
+  }
+}
+// 登录动作处理
+const loading = ref(false)
+const loginFromRef = ref(null)
+const store = useStore()
+const handleLogin = () => {
+  loginFromRef.value.validate(valid => {
+    if (!valid) return
+
+    loading.value = true
+    store
+      .dispatch('user/login', loginForm.value)
+      .then(() => {
+        loading.value = false
+        // TODO: 登录后操作
+      })
+      .catch(err => {
+        console.log(err)
+        loading.value = false
+      })
+  })
+}
 </script>
 <style lang="scss" scoped>
 $bg: #2d3a4b;
@@ -130,7 +166,6 @@ $cursor: #fff;
   .show-pwd {
     position: absolute;
     right: 10px;
-    top: 7px;
     font-size: 16px;
     color: $dark_gray;
     cursor: pointer;
