@@ -2,14 +2,15 @@
  * @Author: xujian
  * @Date: 2021-12-13 17:55:39
  * @LastEditors: xujian
- * @LastEditTime: 2021-12-15 22:49:35
+ * @LastEditTime: 2021-12-15 23:08:25
  * @Description:用于处理所有和 用户相关 的内容
  * @FilePath: /imooc-admin/src/store/modules/user.js
  */
 import { login, getUserInfo } from '@/api/sys'
 import md5 from 'md5'
-import { setItem, getItem } from '@/utils/storage'
+import { setItem, getItem, removeAllItem } from '@/utils/storage'
 import { TOKEN } from '@/constant'
+import router from '@/router'
 export default {
   namespaced: true,
   state: () => ({
@@ -47,6 +48,12 @@ export default {
 
       this.commit('user/setUserInfo', res)
       return res
+    },
+    logout() {
+      this.commit('user/setToken', '')
+      this.commit('user/setUserInfo', {})
+      removeAllItem()
+      router.push('/login')
     }
   }
 }
