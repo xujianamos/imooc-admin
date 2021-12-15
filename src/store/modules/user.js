@@ -2,7 +2,7 @@
  * @Author: xujian
  * @Date: 2021-12-13 17:55:39
  * @LastEditors: xujian
- * @LastEditTime: 2021-12-15 09:11:21
+ * @LastEditTime: 2021-12-15 10:18:37
  * @Description:用于处理所有和 用户相关 的内容
  * @FilePath: \imooc-admin\src\store\modules\user.js
  */
@@ -30,7 +30,7 @@ export default {
           password: md5(password)
         })
           .then(data => {
-            this.commit('user/setToken', data.data.data.token)
+            this.commit('user/setToken', data.token)
             resolve()
           })
           .catch(err => {
