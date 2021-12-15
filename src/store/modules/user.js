@@ -2,7 +2,7 @@
  * @Author: xujian
  * @Date: 2021-12-13 17:55:39
  * @LastEditors: xujian
- * @LastEditTime: 2021-12-15 23:08:25
+ * @LastEditTime: 2021-12-15 23:16:44
  * @Description:用于处理所有和 用户相关 的内容
  * @FilePath: /imooc-admin/src/store/modules/user.js
  */
@@ -11,6 +11,7 @@ import md5 from 'md5'
 import { setItem, getItem, removeAllItem } from '@/utils/storage'
 import { TOKEN } from '@/constant'
 import router from '@/router'
+import { setTimeStamp } from '@/utils/auth'
 export default {
   namespaced: true,
   state: () => ({
@@ -36,6 +37,8 @@ export default {
         })
           .then(data => {
             this.commit('user/setToken', data.token)
+            // 保存登录时间
+            setTimeStamp()
             resolve()
           })
           .catch(err => {
