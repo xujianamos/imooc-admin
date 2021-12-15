@@ -2,7 +2,7 @@
  * @Author: xujian
  * @Date: 2021-12-07 10:57:32
  * @LastEditors: xujian
- * @LastEditTime: 2021-12-09 10:39:19
+ * @LastEditTime: 2021-12-15 10:45:03
  * @Description:路由配置
  * @FilePath: \imooc-admin\src\router\index.js
  */
@@ -13,12 +13,12 @@ import { createRouter, createWebHashHistory } from 'vue-router'
  */
 const publicRoutes = [
   {
-    path: '/',
-    redirect: '/login'
-  },
-  {
     path: '/login',
     component: () => import('@/views/login')
+  },
+  {
+    path: '/',
+    component: () => import('@/layout/index')
   }
 ]
 

@@ -2,13 +2,13 @@
  * @Author: xujian
  * @Date: 2021-12-09 09:20:21
  * @LastEditors: xujian
- * @LastEditTime: 2021-12-13 17:57:29
+ * @LastEditTime: 2021-12-15 10:50:48
  * @Description: 登录页面
  * @FilePath: \imooc-admin\src\views\login\index.vue
 -->
 <template>
   <div class="login-container">
-    <el-form class="login-form" :model="loginForm" :rules="loginRules">
+    <el-form class="login-form" :model="loginForm" :rules="loginRules" ref="loginFromRef">
       <div class="title-container">
         <h3 class="title">用户登录</h3>
       </div>
@@ -43,6 +43,8 @@
 import { validatePassword } from './rules'
 import { ref } from 'vue'
 import { useStore } from 'vuex'
+import { useRouter } from 'vue-router'
+const router = useRouter()
 // 数据源
 const loginForm = ref({
   username: 'super-admin',
@@ -91,6 +93,7 @@ const handleLogin = () => {
       .then(() => {
         loading.value = false
         // TODO: 登录后操作
+        router.push('/')
       })
       .catch(err => {
         console.log(err)
