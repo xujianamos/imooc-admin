@@ -2,9 +2,9 @@
  * @Author: xujian
  * @Date: 2021-12-13 17:53:54
  * @LastEditors: xujian
- * @LastEditTime: 2021-12-15 23:17:40
+ * @LastEditTime: 2021-12-16 14:35:36
  * @Description:封装的网络请求
- * @FilePath: /imooc-admin/src/utils/request.js
+ * @FilePath: \imooc-admin\src\utils\request.js
  */
 import axios from 'axios'
 import store from '@/store'
@@ -51,7 +51,11 @@ service.interceptors.response.use(
     }
   },
   error => {
-    // TODO: 将来处理 token 超时问题
+    // 处理 token 超时问题
+    if (error.response && error.response.data && error.response.data.code === 401) {
+      // token超时
+      store.dispatch('user/logout')
+    }
     ElMessage.error(error.message) // 提示错误信息
     return Promise.reject(error)
   }
