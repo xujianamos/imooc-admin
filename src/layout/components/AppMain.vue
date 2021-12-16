@@ -2,12 +2,14 @@
  * @Author: xujian
  * @Date: 2021-12-15 20:12:06
  * @LastEditors: xujian
- * @LastEditTime: 2021-12-15 20:47:29
+ * @LastEditTime: 2021-12-16 21:46:25
  * @Description: 内容区
  * @FilePath: /imooc-admin/src/layout/components/AppMain.vue
 -->
 <template>
-  <div class="app-main">AppMain</div>
+  <div class="app-main">
+    <router-view></router-view>
+  </div>
 </template>
 
 <script setup>

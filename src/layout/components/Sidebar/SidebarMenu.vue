@@ -2,9 +2,9 @@
  * @Author: xujian
  * @Date: 2021-12-16 14:39:26
  * @LastEditors: xujian
- * @LastEditTime: 2021-12-16 14:40:47
+ * @LastEditTime: 2021-12-16 21:48:22
  * @Description: 动态菜单组件
- * @FilePath: \imooc-admin\src\layout\components\Sidebar\SidebarMenu.vue
+ * @FilePath: /imooc-admin/src/layout/components/Sidebar/SidebarMenu.vue
 -->
 <template>
   <!-- 一级 menu 菜单 -->
@@ -31,3 +31,9 @@
     </el-menu-item>
   </el-menu>
 </template>
+<script setup>
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
+console.log(router.getRoutes())
+</script>
