@@ -2,10 +2,12 @@
  * @Author: xujian
  * @Date: 2021-12-15 10:53:42
  * @LastEditors: xujian
- * @LastEditTime: 2021-12-15 22:13:32
+ * @LastEditTime: 2021-12-17 15:22:44
  * @Description:全局getter
- * @FilePath: /imooc-admin/src/store/getters.js
+ * @FilePath: \imooc-admin\src\store\getters.js
  */
+import variables from '@/styles/variables.scss'
+
 const getters = {
   token: state => state.user.token,
   userInfo: state => state.user.userInfo,
@@ -14,6 +16,8 @@ const getters = {
    */
   hasUserInfo: state => {
     return JSON.stringify(state.user.userInfo) !== '{}'
-  }
+  },
+  cssVar: state => variables,
+  sidebarOpened: state => state.app.sidebarOpened
 }
 export default getters

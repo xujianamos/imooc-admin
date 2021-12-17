@@ -2,12 +2,12 @@
  * @Author: xujian
  * @Date: 2021-12-15 10:29:11
  * @LastEditors: xujian
- * @LastEditTime: 2021-12-15 20:38:13
+ * @LastEditTime: 2021-12-17 15:37:53
  * @Description: Layout布局页面
- * @FilePath: /imooc-admin/src/layout/index.vue
+ * @FilePath: \imooc-admin\src\layout\index.vue
 -->
 <template>
-  <div class="app-wrapper">
+  <div class="app-wrapper" :class="[$store.getters.sidebarOpened ? 'openSidebar' : 'hideSidebar']">
     <!-- 左侧 menu -->
     <sidebar id="guide-sidebar" class="sidebar-container" :style="{ backgroundColor: variables.menuBg }" />
     <div class="main-container">
@@ -47,5 +47,9 @@ import {} from 'vue'
   right: 0;
   z-index: 9;
   width: calc(100% - #{$sideBarWidth});
+  transition: width #{$sideBarDuration};
+}
+.hideSidebar .fixed-header {
+  width: calc(100% - #{$hideSideBarWidth});
 }
 </style>

@@ -2,12 +2,13 @@
  * @Author: xujian
  * @Date: 2021-12-15 20:11:53
  * @LastEditors: xujian
- * @LastEditTime: 2021-12-15 23:07:52
+ * @LastEditTime: 2021-12-17 15:25:09
  * @Description: 导航栏
- * @FilePath: /imooc-admin/src/layout/components/Navbar.vue
+ * @FilePath: \imooc-admin\src\layout\components\Navbar.vue
 -->
 <template>
   <div class="navbar">
+    <Hamburger class="hamburger-container" />
     <div class="right-menu">
       <!-- 头像 -->
       <el-dropdown class="avatar-container" trigger="click">
@@ -34,6 +35,7 @@
 <script setup>
 import {} from 'vue'
 import { useStore } from 'vuex'
+import Hamburger from '@/components/Hamburger'
 const store = useStore()
 const logout = () => {
   store.dispatch('user/logout')
@@ -47,7 +49,18 @@ const logout = () => {
   position: relative;
   background: #fff;
   box-shadow: 0 1px 4px rgba(0, 21, 41, 0.08);
+  .hamburger-container {
+    line-height: 46px;
+    height: 100%;
+    float: left;
+    cursor: pointer;
+    // hover 动画
+    transition: background 0.5s;
 
+    &:hover {
+      background: rgba(0, 0, 0, 0.1);
+    }
+  }
   .right-menu {
     display: flex;
     align-items: center;
