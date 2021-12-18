@@ -2,9 +2,9 @@
  * @Author: xujian
  * @Date: 2021-12-13 17:53:54
  * @LastEditors: xujian
- * @LastEditTime: 2021-12-16 14:35:36
+ * @LastEditTime: 2021-12-18 17:38:31
  * @Description:封装的网络请求
- * @FilePath: \imooc-admin\src\utils\request.js
+ * @FilePath: /imooc-admin/src/utils/request.js
  */
 import axios from 'axios'
 import store from '@/store'
@@ -39,17 +39,20 @@ service.interceptors.request.use(
 
 // 响应拦截器
 service.interceptors.response.use(
+  // 请求成功
   response => {
     const { success, message, data } = response.data
     //   要根据success的成功与否决定下面的操作
     if (success) {
+      // 成功返回解析后的数据
       return data
     } else {
-      // 业务错误
+      // 失败(请求成功，业务失败)，消息提示
       ElMessage.error(message) // 提示错误消息
       return Promise.reject(new Error(message))
     }
   },
+  // 请求失败
   error => {
     // 处理 token 超时问题
     if (error.response && error.response.data && error.response.data.code === 401) {

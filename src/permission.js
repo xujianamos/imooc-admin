@@ -2,17 +2,21 @@
  * @Author: xujian
  * @Date: 2021-12-15 10:53:05
  * @LastEditors: xujian
- * @LastEditTime: 2021-12-15 23:00:57
+ * @LastEditTime: 2021-12-18 17:50:52
  * @Description:鉴权操作
  * @FilePath: /imooc-admin/src/permission.js
  */
-import router from './router'
-import store from './store'
+import router from '@/router'
+import store from '@/store'
 
 // 白名单
 const whiteList = ['/login']
 /**
- * 路由前置守卫
+ * @description: 路由前置守卫
+ * @param {*} to 要到哪里去
+ * @param {*} from 从哪里来
+ * @param {*} next  是否要去
+ * @return {*}
  */
 router.beforeEach(async (to, from, next) => {
   // 存在 token ，进入主页

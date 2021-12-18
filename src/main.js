@@ -2,7 +2,7 @@
  * @Author: xujian
  * @Date: 2021-12-07 10:57:32
  * @LastEditors: xujian
- * @LastEditTime: 2021-12-17 23:28:46
+ * @LastEditTime: 2021-12-18 17:53:17
  * @Description:项目入口文件
  * @FilePath: /imooc-admin/src/main.js
  */
@@ -16,6 +16,7 @@ import i18n from '@/i18n'
 // 导入全局样式
 import './styles/index.scss'
 
+// 导入路由鉴权
 import './permission'
 
 // 导入 svgIcon

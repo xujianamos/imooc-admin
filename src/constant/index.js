@@ -2,8 +2,8 @@
  * @Author: xujian
  * @Date: 2021-12-15 09:09:06
  * @LastEditors: xujian
- * @LastEditTime: 2021-12-17 23:33:46
- * @Description:常量配置
+ * @LastEditTime: 2021-12-18 17:18:40
+ * @Description:项目中所有常量配置
  * @FilePath: /imooc-admin/src/constant/index.js
  */
 export const TOKEN = 'token'

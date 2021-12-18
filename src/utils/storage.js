@@ -2,9 +2,9 @@
  * @Author: xujian
  * @Date: 2021-12-15 09:07:10
  * @LastEditors: xujian
- * @LastEditTime: 2021-12-15 09:07:11
+ * @LastEditTime: 2021-12-18 17:11:49
  * @Description:本地缓存
- * @FilePath: \imooc-admin\src\utils\storage.js
+ * @FilePath: /imooc-admin/src/utils/storage.js
  */
 /**
  * 存储数据
@@ -22,6 +22,8 @@ export const setItem = (key, value) => {
  */
 export const getItem = key => {
   const data = window.localStorage.getItem(key)
+  // 保存了两种类型的数据：基本数据类型和复杂数据类型
+  // 获取时需要对两种情况进行处理
   try {
     return JSON.parse(data)
   } catch (err) {

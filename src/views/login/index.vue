@@ -2,9 +2,9 @@
  * @Author: xujian
  * @Date: 2021-12-09 09:20:21
  * @LastEditors: xujian
- * @LastEditTime: 2021-12-15 10:50:48
+ * @LastEditTime: 2021-12-18 16:25:55
  * @Description: 登录页面
- * @FilePath: \imooc-admin\src\views\login\index.vue
+ * @FilePath: /imooc-admin/src/views/login/index.vue
 -->
 <template>
   <div class="login-container">
@@ -81,18 +81,21 @@ const onChangePwdType = () => {
 }
 // 登录动作处理
 const loading = ref(false)
+// 创建表单的ref，会自动的到template中去找loginFromRef
 const loginFromRef = ref(null)
 const store = useStore()
 const handleLogin = () => {
+  // 1.进行表单验证
   loginFromRef.value.validate(valid => {
     if (!valid) return
 
+    // 2.触发登陆操作
     loading.value = true
     store
       .dispatch('user/login', loginForm.value)
       .then(() => {
         loading.value = false
-        // TODO: 登录后操作
+        // TODO: 3.登录后操作
         router.push('/')
       })
       .catch(err => {

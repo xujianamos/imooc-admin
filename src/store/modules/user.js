@@ -2,7 +2,7 @@
  * @Author: xujian
  * @Date: 2021-12-13 17:55:39
  * @LastEditors: xujian
- * @LastEditTime: 2021-12-15 23:16:44
+ * @LastEditTime: 2021-12-18 17:25:46
  * @Description:用于处理所有和 用户相关 的内容
  * @FilePath: /imooc-admin/src/store/modules/user.js
  */
@@ -15,20 +15,26 @@ import { setTimeStamp } from '@/utils/auth'
 export default {
   namespaced: true,
   state: () => ({
+    // token：初次获取本地token实现自动登录效果，获取不到才赋值为空字符串
     token: getItem(TOKEN) || '',
+    // 用户信息
     userInfo: {}
   }),
   mutations: {
+    // 保存token：保存在vuex和本地localStorage
     setToken(state, token) {
       state.token = token
       setItem(TOKEN, token)
     },
+    // 保存用户信息
     setUserInfo(state, userInfo) {
       state.userInfo = userInfo
     }
   },
   actions: {
+    // 登录逻辑
     login(context, userInfo) {
+      const { commit } = context
       const { username, password } = userInfo
       return new Promise((resolve, reject) => {
         login({
@@ -36,7 +42,8 @@ export default {
           password: md5(password)
         })
           .then(data => {
-            this.commit('user/setToken', data.token)
+            // this.commit('user/setToken', data.token)
+            commit('user/setToken', data.token)
             // 保存登录时间
             setTimeStamp()
             resolve()
@@ -46,12 +53,14 @@ export default {
           })
       })
     },
+    // 获取用户信息逻辑
     async getUserInfo(context) {
       const res = await getUserInfo()
 
       this.commit('user/setUserInfo', res)
       return res
     },
+    // 退出登录逻辑
     logout() {
       this.commit('user/setToken', '')
       this.commit('user/setUserInfo', {})
