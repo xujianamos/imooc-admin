@@ -2,14 +2,17 @@
  * @Author: xujian
  * @Date: 2021-12-15 20:11:53
  * @LastEditors: xujian
- * @LastEditTime: 2021-12-17 15:25:09
+ * @LastEditTime: 2021-12-17 23:36:14
  * @Description: 导航栏
- * @FilePath: \imooc-admin\src\layout\components\Navbar.vue
+ * @FilePath: /imooc-admin/src/layout/components/Navbar.vue
 -->
 <template>
   <div class="navbar">
     <Hamburger class="hamburger-container" />
+    <!-- 面包屑 -->
+    <Breadcrumb class="breadcrumb-container" />
     <div class="right-menu">
+      <lang-select class="right-menu-item hover-effect" />
       <!-- 头像 -->
       <el-dropdown class="avatar-container" trigger="click">
         <div class="avatar-wrapper">
@@ -36,6 +39,8 @@
 import {} from 'vue'
 import { useStore } from 'vuex'
 import Hamburger from '@/components/Hamburger'
+import Breadcrumb from '@/components/Breadcrumb'
+import LangSelect from '@/components/LangSelect'
 const store = useStore()
 const logout = () => {
   store.dispatch('user/logout')
@@ -61,6 +66,9 @@ const logout = () => {
       background: rgba(0, 0, 0, 0.1);
     }
   }
+  .breadcrumb-container {
+    float: left;
+  }
   .right-menu {
     display: flex;
     align-items: center;
@@ -76,6 +84,17 @@ const logout = () => {
           --el-avatar-background-color: none;
           margin-right: 12px;
         }
+      }
+    }
+    ::v-deep .right-menu-item {
+      display: inline-block;
+      padding: 0 18px 0 0;
+      font-size: 24px;
+      color: #5a5e66;
+      vertical-align: text-bottom;
+
+      &.hover-effect {
+        cursor: pointer;
       }
     }
   }

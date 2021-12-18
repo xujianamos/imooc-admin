@@ -1,3 +1,11 @@
+/*
+ * @Author: xujian
+ * @Date: 2021-12-08 20:30:46
+ * @LastEditors: xujian
+ * @LastEditTime: 2021-12-17 23:41:41
+ * @Description:eslint规则
+ * @FilePath: /imooc-admin/.eslintrc.js
+ */
 // ESLINT配置文件遵循commonjs的导出规则，所导出的对象就是eslint的配置对象
 module.exports = {
   // 表示当前目录即为根目录，eslint规则将被限制到该目录下
@@ -8,10 +16,7 @@ module.exports = {
     node: true
   },
   // eslint 中基础配置需要继承的配置
-  extends: [
-    'plugin:vue/vue3-essential',
-    '@vue/standard'
-  ],
+  extends: ['plugin:vue/vue3-essential', '@vue/standard'],
   // 解析器
   parserOptions: {
     parser: 'babel-eslint'
@@ -34,6 +39,7 @@ module.exports = {
         named: 'never',
         asyncArrow: 'always'
       }
-    ]
+    ],
+    'space-before-function-paren': 0
   }
 }
