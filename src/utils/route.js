@@ -2,9 +2,9 @@
  * @Author: xujian
  * @Date: 2021-12-17 10:28:42
  * @LastEditors: xujian
- * @LastEditTime: 2021-12-17 10:28:49
+ * @LastEditTime: 2021-12-19 15:05:47
  * @Description:处理路由相关方法
- * @FilePath: \imooc-admin\src\utils\route.js
+ * @FilePath: /imooc-admin/src/utils/route.js
  */
 import path from 'path'
 

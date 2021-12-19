@@ -2,12 +2,13 @@
  * @Author: xujian
  * @Date: 2021-12-15 20:11:53
  * @LastEditors: xujian
- * @LastEditTime: 2021-12-17 23:36:14
+ * @LastEditTime: 2021-12-19 15:50:54
  * @Description: 导航栏
  * @FilePath: /imooc-admin/src/layout/components/Navbar.vue
 -->
 <template>
   <div class="navbar">
+    <!-- 左侧折叠按钮 -->
     <Hamburger class="hamburger-container" />
     <!-- 面包屑 -->
     <Breadcrumb class="breadcrumb-container" />

@@ -2,7 +2,7 @@
  * @Author: xujian
  * @Date: 2021-12-15 20:12:06
  * @LastEditors: xujian
- * @LastEditTime: 2021-12-16 21:46:25
+ * @LastEditTime: 2021-12-18 18:20:32
  * @Description: 内容区
  * @FilePath: /imooc-admin/src/layout/components/AppMain.vue
 -->
@@ -18,6 +18,7 @@ import {} from 'vue'
 
 <style lang="scss" scoped>
 .app-main {
+  /* 浏览器可视区域的高度 100vh */
   min-height: calc(100vh - 50px);
   width: 100%;
   position: relative;

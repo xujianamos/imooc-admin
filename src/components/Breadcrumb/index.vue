@@ -2,7 +2,7 @@
  * @Author: xujian
  * @Date: 2021-12-17 22:31:36
  * @LastEditors: xujian
- * @LastEditTime: 2021-12-17 22:55:44
+ * @LastEditTime: 2021-12-19 16:40:03
  * @Description: 面包屑
  * @FilePath: /imooc-admin/src/components/Breadcrumb/index.vue
 -->
@@ -29,12 +29,12 @@ const route = useRoute()
 const breadcrumbData = ref([])
 const getBreadcrumbData = () => {
   breadcrumbData.value = route.matched.filter(item => item.meta && item.meta.title)
-  console.log(breadcrumbData.value)
+  // console.log(breadcrumbData.value)
 }
 // 处理点击事件
 const router = useRouter()
 const onLinkClick = item => {
-  console.log(item)
+  // console.log(item)
   router.push(item.path)
 }
 

@@ -2,9 +2,9 @@
  * @Author: xujian
  * @Date: 2021-12-16 14:39:26
  * @LastEditors: xujian
- * @LastEditTime: 2021-12-17 15:22:42
+ * @LastEditTime: 2021-12-19 15:19:01
  * @Description: 动态菜单组件
- * @FilePath: \imooc-admin\src\layout\components\Sidebar\SidebarMenu.vue
+ * @FilePath: /imooc-admin/src/layout/components/Sidebar/SidebarMenu.vue
 -->
 <template>
   <!-- 一级 menu 菜单 -->
@@ -32,7 +32,7 @@ const routes = computed(() => {
   const filterRoutes = filterRouters(router.getRoutes())
   return generateMenus(filterRoutes)
 })
-console.log(JSON.stringify(routes.value))
+// console.log(JSON.stringify(routes.value))
 // 计算高亮 menu 的方法
 const route = useRoute()
 const activeMenu = computed(() => {

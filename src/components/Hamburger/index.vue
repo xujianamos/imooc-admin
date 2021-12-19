@@ -2,9 +2,9 @@
  * @Author: xujian
  * @Date: 2021-12-17 15:06:33
  * @LastEditors: xujian
- * @LastEditTime: 2021-12-17 15:28:56
- * @Description: 用来控制数据
- * @FilePath: \imooc-admin\src\components\hamburger\index.vue
+ * @LastEditTime: 2021-12-19 23:46:19
+ * @Description: 导航栏左侧的折叠按钮组件
+ * @FilePath: /imooc-admin/src/components/Hamburger/index.vue
 -->
 <template>
   <div class="hamburger-container" @click="toggleClick">

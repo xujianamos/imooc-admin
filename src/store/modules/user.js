@@ -2,7 +2,7 @@
  * @Author: xujian
  * @Date: 2021-12-13 17:55:39
  * @LastEditors: xujian
- * @LastEditTime: 2021-12-18 17:25:46
+ * @LastEditTime: 2021-12-19 13:49:35
  * @Description:用于处理所有和 用户相关 的内容
  * @FilePath: /imooc-admin/src/store/modules/user.js
  */
@@ -43,7 +43,7 @@ export default {
         })
           .then(data => {
             // this.commit('user/setToken', data.token)
-            commit('user/setToken', data.token)
+            commit('setToken', data.token)
             // 保存登录时间
             setTimeStamp()
             resolve()
@@ -54,17 +54,24 @@ export default {
       })
     },
     // 获取用户信息逻辑
-    async getUserInfo(context) {
+    async getUserInfo({ commit }) {
       const res = await getUserInfo()
-
-      this.commit('user/setUserInfo', res)
+      // this.commit('user/setUserInfo', res)
+      commit('setUserInfo', res)
       return res
     },
     // 退出登录逻辑
-    logout() {
-      this.commit('user/setToken', '')
-      this.commit('user/setUserInfo', {})
+    logout({ commit }) {
+      // 可以使用this进行调用其他模块的action
+      // this.commit('user/setToken', '')
+      // this.commit('user/setUserInfo', {})
+      // 清除token
+      commit('setToken', '')
+      // 清除用户信息
+      commit('setUserInfo', {})
+      // 清楚本地所有缓存数据
       removeAllItem()
+      // 退回到登录页面
       router.push('/login')
     }
   }

@@ -2,7 +2,7 @@
  * @Author: xujian
  * @Date: 2021-12-13 17:53:54
  * @LastEditors: xujian
- * @LastEditTime: 2021-12-18 17:38:31
+ * @LastEditTime: 2021-12-19 14:11:19
  * @Description:封装的网络请求
  * @FilePath: /imooc-admin/src/utils/request.js
  */
@@ -22,6 +22,7 @@ service.interceptors.request.use(
   config => {
     // 在这个位置需要统一的去注入token
     if (store.getters.token) {
+      // 判断token是否超时
       if (isCheckTimeout()) {
         // 登出操作
         store.dispatch('user/logout')
