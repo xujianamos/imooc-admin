@@ -2,9 +2,9 @@
  * @Author: xujian
  * @Date: 2021-12-15 20:11:53
  * @LastEditors: xujian
- * @LastEditTime: 2021-12-19 15:50:54
+ * @LastEditTime: 2021-12-21 17:40:51
  * @Description: 导航栏
- * @FilePath: /imooc-admin/src/layout/components/Navbar.vue
+ * @FilePath: \imooc-admin\src\layout\components\Navbar.vue
 -->
 <template>
   <div class="navbar">
@@ -13,6 +13,7 @@
     <!-- 面包屑 -->
     <Breadcrumb class="breadcrumb-container" />
     <div class="right-menu">
+      <!-- 切换国际化语言 -->
       <lang-select class="right-menu-item hover-effect" />
       <!-- 头像 -->
       <el-dropdown class="avatar-container" trigger="click">
@@ -23,12 +24,12 @@
         <template #dropdown>
           <el-dropdown-menu class="user-dropdown">
             <router-link to="/">
-              <el-dropdown-item> 首页 </el-dropdown-item>
+              <el-dropdown-item> {{ $t('msg.navBar.home') }} </el-dropdown-item>
             </router-link>
             <a target="_blank" href="">
-              <el-dropdown-item>课程主页</el-dropdown-item>
+              <el-dropdown-item>{{ $t('msg.navBar.course') }}</el-dropdown-item>
             </a>
-            <el-dropdown-item divided @click="logout"> 退出登录 </el-dropdown-item>
+            <el-dropdown-item divided @click="logout"> {{ $t('msg.navBar.logout') }} </el-dropdown-item>
           </el-dropdown-menu>
         </template>
       </el-dropdown>

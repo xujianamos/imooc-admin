@@ -2,9 +2,9 @@
  * @Author: xujian
  * @Date: 2021-12-17 23:33:27
  * @LastEditors: xujian
- * @LastEditTime: 2021-12-17 23:40:30
- * @Description: 用于修改 `locale`
- * @FilePath: /imooc-admin/src/components/LangSelect/index.vue
+ * @LastEditTime: 2021-12-21 17:43:22
+ * @Description: 用于修改国际化组件
+ * @FilePath: \imooc-admin\src\components\LangSelect\index.vue
 -->
 <template>
   <el-dropdown trigger="click" class="international" @command="handleSetLanguage">
@@ -45,8 +45,10 @@ const language = computed(() => store.getters.language)
 // 切换语言的方法
 const i18n = useI18n()
 const handleSetLanguage = lang => {
+  // 切换 i18n 的 locale
   i18n.locale.value = lang
+  // 修改 vuex 中保存的 language
   store.commit('app/setLanguage', lang)
-  ElMessage.success('更新成功')
+  ElMessage.success(i18n.t('msg.toast.switchLangSuccess'))
 }
 </script>

@@ -2,15 +2,16 @@
  * @Author: xujian
  * @Date: 2021-12-09 09:20:21
  * @LastEditors: xujian
- * @LastEditTime: 2021-12-18 16:25:55
+ * @LastEditTime: 2021-12-21 17:37:47
  * @Description: 登录页面
- * @FilePath: /imooc-admin/src/views/login/index.vue
+ * @FilePath: \imooc-admin\src\views\login\index.vue
 -->
 <template>
   <div class="login-container">
     <el-form class="login-form" :model="loginForm" :rules="loginRules" ref="loginFromRef">
       <div class="title-container">
-        <h3 class="title">用户登录</h3>
+        <h3 class="title">{{ $t('msg.login.title') }}</h3>
+        <lang-select class="lang-select" />
       </div>
       <!-- username -->
       <el-form-item prop="username">
@@ -30,9 +31,10 @@
         </span>
       </el-form-item>
       <!-- 登录按钮 -->
-      <el-button type="primary" style="width: 100%; margin-bottom: 30px" :loading="loading" @click="handleLogin"
-        >登录</el-button
-      >
+      <el-button type="primary" style="width: 100%; margin-bottom: 30px" :loading="loading" @click="handleLogin">{{
+        $t('msg.login.loginBtn')
+      }}</el-button>
+      <div class="tips" v-html="$t('msg.login.desc')"></div>
     </el-form>
   </div>
 </template>
@@ -40,10 +42,12 @@
 <script setup>
 // 导入的组件可以直接使用
 // import SvgIcon from '@/components/SvgIcon'
+import LangSelect from '@/components/LangSelect'
 import { validatePassword } from './rules'
 import { ref } from 'vue'
 import { useStore } from 'vuex'
 import { useRouter } from 'vue-router'
+import { useI18n } from 'vue-i18n'
 const router = useRouter()
 // 数据源
 const loginForm = ref({
@@ -51,12 +55,14 @@ const loginForm = ref({
   password: '123456'
 })
 // 验证规则
+// 只有在组件中才可以使用i18n实例来修改
+const i18n = useI18n()
 const loginRules = ref({
   username: [
     {
       required: true,
       trigger: 'blur',
-      message: '用户名为必填项'
+      message: i18n.t('msg.login.usernameRule')
     }
   ],
   password: [
@@ -148,6 +154,11 @@ $cursor: #fff;
         caret-color: $cursor;
       }
     }
+    .tips {
+      font-size: 16px;
+      color: white;
+      line-height: 24px;
+    }
   }
 
   .svg-container {
@@ -176,6 +187,16 @@ $cursor: #fff;
     color: $dark_gray;
     cursor: pointer;
     user-select: none;
+  }
+  ::v-deep .lang-select {
+    position: absolute;
+    top: 4px;
+    right: 0;
+    background-color: #fff;
+    font-size: 22px;
+    padding: 4px;
+    border-radius: 4px;
+    cursor: pointer;
   }
 }
 </style>

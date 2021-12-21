@@ -2,18 +2,18 @@
  * @Author: xujian
  * @Date: 2021-12-17 22:31:36
  * @LastEditors: xujian
- * @LastEditTime: 2021-12-19 16:40:03
+ * @LastEditTime: 2021-12-21 17:48:56
  * @Description: 面包屑
- * @FilePath: /imooc-admin/src/components/Breadcrumb/index.vue
+ * @FilePath: \imooc-admin\src\components\Breadcrumb\index.vue
 -->
 <template>
   <el-breadcrumb class="breadcrumb" separator="/">
     <transition-group name="breadcrumb">
       <el-breadcrumb-item v-for="(item, index) in breadcrumbData" :key="item.path">
         <!-- 不可点击项 -->
-        <span v-if="index === breadcrumbData.length - 1" class="no-redirect">{{ item.meta.title }}</span>
+        <span v-if="index === breadcrumbData.length - 1" class="no-redirect">{{ generateTitle(item.meta.title) }}</span>
         <!-- 可点击项 -->
-        <a v-else class="redirect" @click.prevent="onLinkClick(item)">{{ item.meta.title }}</a>
+        <a v-else class="redirect" @click.prevent="onLinkClick(item)">{{ generateTitle(item.meta.title) }}</a>
       </el-breadcrumb-item>
     </transition-group>
   </el-breadcrumb>
@@ -23,6 +23,7 @@
 import { ref, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { useStore } from 'vuex'
+import { generateTitle } from '@/utils/i18n'
 
 const route = useRoute()
 // 生成数组数据

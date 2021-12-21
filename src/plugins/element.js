@@ -1,7 +1,19 @@
+/*
+ * @Author: xujian
+ * @Date: 2021-12-15 10:20:14
+ * @LastEditors: xujian
+ * @LastEditTime: 2021-12-21 17:00:31
+ * @Description:
+ * @FilePath: \imooc-admin\src\plugins\element.js
+ */
 import ElementPlus from 'element-plus'
-import 'element-plus/lib/theme-chalk/index.css'
-import locale from 'element-plus/lib/locale/lang/zh-cn'
+import 'element-plus/dist/index.css'
+// import locale from 'element-plus/lib/locale/lang/zh-cn'
+import zhCn from 'element-plus/es/locale/lang/zh-cn'
+import en from 'element-plus/lib/locale/lang/en'
 
-export default (app) => {
-  app.use(ElementPlus, { locale })
+import store from '@/store'
+
+export default app => {
+  app.use(ElementPlus, { locale: store.getters.language === 'en' ? en : zhCn })
 }

@@ -2,9 +2,9 @@
  * @Author: xujian
  * @Date: 2021-12-17 15:04:46
  * @LastEditors: xujian
- * @LastEditTime: 2021-12-17 23:33:48
+ * @LastEditTime: 2021-12-21 15:07:41
  * @Description:app
- * @FilePath: /imooc-admin/src/store/modules/app.js
+ * @FilePath: \imooc-admin\src\store\modules\app.js
  */
 import { LANG } from '@/constant'
 import { getItem, setItem } from '@/utils/storage'
@@ -12,7 +12,9 @@ import { getItem, setItem } from '@/utils/storage'
 export default {
   namespaced: true,
   state: () => ({
+    // 左侧是否折叠
     sidebarOpened: true,
+    // 设置国际化语言
     language: getItem(LANG) || 'zh'
   }),
   mutations: {

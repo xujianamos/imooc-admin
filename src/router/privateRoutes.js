@@ -2,9 +2,9 @@
  * @Author: xujian
  * @Date: 2021-12-16 21:42:57
  * @LastEditors: xujian
- * @LastEditTime: 2021-12-16 22:01:22
+ * @LastEditTime: 2021-12-21 17:46:35
  * @Description:私有路由表
- * @FilePath: /imooc-admin/src/router/privateRoutes.js
+ * @FilePath: \imooc-admin\src\router\privateRoutes.js
  */
 import layout from '@/layout'
 
