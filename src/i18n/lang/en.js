@@ -45,6 +45,7 @@ export default {
     themeChange: 'Theme Change'
   },
   universal: {
+    title: 'remoind',
     confirm: 'confirm',
     cancel: 'cancel'
   },
@@ -82,8 +83,7 @@ export default {
     sidebarDesc: 'Project function menu'
   },
   profile: {
-    muted:
-      '"Vue3 rewrite vue-element-admin, realize the back-end front-end integrated solution" project demonstration',
+    muted: '"Vue3 rewrite vue-element-admin, realize the back-end front-end integrated solution" project demonstration',
     introduce: 'Introduce',
     projectIntroduction: 'Project Introduction',
     projectFunction: 'Project Function',

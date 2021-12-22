@@ -2,16 +2,18 @@
  * @Author: xujian
  * @Date: 2021-12-22 09:47:23
  * @LastEditors: xujian
- * @LastEditTime: 2021-12-22 10:59:48
+ * @LastEditTime: 2021-12-22 17:39:48
  * @Description: 选择色值组件
  * @FilePath: \imooc-admin\src\components\ThemeSelect\components\SelectColor.vue
 -->
 <template>
-  <el-dialog title="提示" :model-value="modelValue" @close="closed" width="22%">
+  <el-dialog :title="$t('msg.universal.title')" :model-value="modelValue" @close="closed" width="22%">
+    <!-- 内容区 -->
     <div class="center">
       <p class="title">{{ $t('msg.theme.themeColorChange') }}</p>
       <el-color-picker v-model="mColor" :predefine="predefineColors"></el-color-picker>
     </div>
+    <!--footer  -->
     <template #footer>
       <span class="dialog-footer">
         <el-button @click="closed">{{ $t('msg.universal.cancel') }}</el-button>
@@ -26,6 +28,7 @@ import { defineProps, defineEmits, ref } from 'vue'
 import { useStore } from 'vuex'
 import { generateNewStyle, writeNewStyle } from '@/utils/theme'
 defineProps({
+  // 控制弹出层的展示
   modelValue: {
     type: Boolean,
     required: true
