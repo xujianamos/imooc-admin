@@ -2,7 +2,7 @@
  * @Author: xujian
  * @Date: 2021-12-15 20:11:53
  * @LastEditors: xujian
- * @LastEditTime: 2021-12-22 09:44:31
+ * @LastEditTime: 2021-12-22 16:45:01
  * @Description: 导航栏
  * @FilePath: \imooc-admin\src\layout\components\Navbar.vue
 -->
@@ -17,6 +17,8 @@
       <theme-picker class="right-menu-item hover-effect"></theme-picker>
       <!-- 切换国际化语言 -->
       <lang-select class="right-menu-item hover-effect" />
+      <!-- 全屏组件 -->
+      <screenfull class="right-menu-item hover-effect" />
       <!-- 头像 -->
       <el-dropdown class="avatar-container" trigger="click">
         <div class="avatar-wrapper">
@@ -47,6 +49,7 @@ import Hamburger from '@/components/Hamburger'
 import Breadcrumb from '@/components/Breadcrumb'
 import LangSelect from '@/components/LangSelect'
 import ThemePicker from '@/components/ThemeSelect/index'
+import Screenfull from '@/components/Screenfull'
 const store = useStore()
 const logout = () => {
   store.dispatch('user/logout')
