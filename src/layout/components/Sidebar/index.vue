@@ -2,9 +2,9 @@
  * @Author: xujian
  * @Date: 2021-12-15 20:11:38
  * @LastEditors: xujian
- * @LastEditTime: 2021-12-17 23:30:33
+ * @LastEditTime: 2021-12-22 20:14:02
  * @Description: 侧边栏
- * @FilePath: /imooc-admin/src/layout/components/Sidebar/index.vue
+ * @FilePath: \imooc-admin\src\layout\components\Sidebar\index.vue
 -->
 <template>
   <div class="">
@@ -43,6 +43,10 @@ const logoHeight = 44
     line-height: 50px;
     font-size: 16px;
     white-space: nowrap;
+  }
+  /* 修改头像背景色 */
+  .el-avatar {
+    --el-avatar-background-color: none;
   }
 }
 </style>

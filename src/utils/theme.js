@@ -2,7 +2,7 @@
  * @Author: xujian
  * @Date: 2021-12-22 10:55:09
  * @LastEditors: xujian
- * @LastEditTime: 2021-12-22 10:58:03
+ * @LastEditTime: 2021-12-22 19:47:42
  * @Description:处理主题方法
  * @FilePath: \imooc-admin\src\utils\theme.js
  */
@@ -26,7 +26,9 @@ export const writeNewStyle = elNewStyle => {
  * 根据主色值，生成最新的样式表
  */
 export const generateNewStyle = async primaryColor => {
+  // 1.根据主色生成色值表
   const colors = generateColors(primaryColor)
+  // 2.获取当前 element-plus的默认样式表，并且把需要进行替换的色值打上标记
   let cssText = await getOriginalStyle()
 
   // 遍历生成的样式表，在 CSS 的原样式中进行全局替换
