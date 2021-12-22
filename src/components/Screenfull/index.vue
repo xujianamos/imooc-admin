@@ -2,13 +2,13 @@
  * @Author: xujian
  * @Date: 2021-12-22 16:41:19
  * @LastEditors: xujian
- * @LastEditTime: 2021-12-22 16:41:20
+ * @LastEditTime: 2021-12-22 22:07:29
  * @Description: 全屏组件
- * @FilePath: \imooc-admin\src\components\Screenfull\index.vue
+ * @FilePath: /imooc-admin/src/components/Screenfull/index.vue
 -->
 <template>
-  <div>
-    <svg-icon :icon="isFullscreen ? 'exit-fullscreen' : 'fullscreen'" @click="onToggle" />
+  <div @click="onToggle">
+    <svg-icon :icon="isFullscreen ? 'exit-fullscreen' : 'fullscreen'" />
   </div>
 </template>
 
