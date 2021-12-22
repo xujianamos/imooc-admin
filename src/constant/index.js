@@ -2,9 +2,9 @@
  * @Author: xujian
  * @Date: 2021-12-15 09:09:06
  * @LastEditors: xujian
- * @LastEditTime: 2021-12-18 17:18:40
+ * @LastEditTime: 2021-12-22 09:49:14
  * @Description:项目中所有常量配置
- * @FilePath: /imooc-admin/src/constant/index.js
+ * @FilePath: \imooc-admin\src\constant\index.js
  */
 export const TOKEN = 'token'
 // token 时间戳
@@ -13,3 +13,7 @@ export const TIME_STAMP = 'timeStamp'
 export const TOKEN_TIMEOUT_VALUE = 2 * 3600 * 1000
 // 国际化
 export const LANG = 'language'
+// 主题色保存的 key
+export const MAIN_COLOR = 'mainColor'
+// 默认色值
+export const DEFAULT_COLOR = '#409eff'
