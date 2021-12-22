@@ -2,9 +2,9 @@
  * @Author: xujian
  * @Date: 2021-12-22 17:01:51
  * @LastEditors: xujian
- * @LastEditTime: 2021-12-22 17:01:52
- * @Description:
- * @FilePath: \imooc-admin\src\components\HeaderSearch\FuseData.js
+ * @LastEditTime: 2021-12-22 22:58:13
+ * @Description:数据源重处理，生成  searchPool
+ * @FilePath: /imooc-admin/src/components/HeaderSearch/FuseData.js
  */
 import path from 'path'
 import i18n from '@/i18n'

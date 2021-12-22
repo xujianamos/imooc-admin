@@ -2,9 +2,9 @@
  * @Author: xujian
  * @Date: 2021-12-09 10:58:55
  * @LastEditors: xujian
- * @LastEditTime: 2021-12-09 14:11:47
+ * @LastEditTime: 2021-12-22 22:36:33
  * @Description: svg组件
- * @FilePath: \imooc-admin\src\components\SvgIcon\index.vue
+ * @FilePath: /imooc-admin/src/components/SvgIcon/index.vue
 -->
 <template>
   <!-- 展示外部图标 -->
