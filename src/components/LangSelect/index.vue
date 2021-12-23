@@ -2,15 +2,15 @@
  * @Author: xujian
  * @Date: 2021-12-17 23:33:27
  * @LastEditors: xujian
- * @LastEditTime: 2021-12-21 17:43:22
+ * @LastEditTime: 2021-12-23 22:45:02
  * @Description: 用于修改国际化组件
- * @FilePath: \imooc-admin\src\components\LangSelect\index.vue
+ * @FilePath: /imooc-admin/src/components/LangSelect/index.vue
 -->
 <template>
   <el-dropdown trigger="click" class="international" @command="handleSetLanguage">
     <div>
       <el-tooltip content="国际化" :effect="effect">
-        <svg-icon icon="language" />
+        <svg-icon id="guide-lang" icon="language" />
       </el-tooltip>
     </div>
     <template #dropdown>

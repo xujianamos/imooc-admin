@@ -2,14 +2,14 @@
  * @Author: xujian
  * @Date: 2021-12-22 16:51:06
  * @LastEditors: xujian
- * @LastEditTime: 2021-12-22 23:17:45
+ * @LastEditTime: 2021-12-23 22:44:06
  * @Description: 页面搜索组件
  * @FilePath: /imooc-admin/src/components/HeaderSearch/index.vue
 -->
 <template>
   <div :class="{ show: isShow }" class="header-search">
     <span @click.stop="onShowClick">
-      <svg-icon class-name="search-icon" icon="search" />
+      <svg-icon id="guide-search" class-name="search-icon" icon="search" />
     </span>
     <el-select
       ref="headerSearchSelectRef"

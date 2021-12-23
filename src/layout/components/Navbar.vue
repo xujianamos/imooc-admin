@@ -2,18 +2,19 @@
  * @Author: xujian
  * @Date: 2021-12-15 20:11:53
  * @LastEditors: xujian
- * @LastEditTime: 2021-12-22 17:16:26
+ * @LastEditTime: 2021-12-23 22:43:44
  * @Description: 导航栏
- * @FilePath: \imooc-admin\src\layout\components\Navbar.vue
+ * @FilePath: /imooc-admin/src/layout/components/Navbar.vue
 -->
 <template>
   <div class="navbar">
     <!-- 左侧折叠按钮 -->
     <Hamburger class="hamburger-container" />
     <!-- 面包屑 -->
-    <Breadcrumb class="breadcrumb-container" />
+    <Breadcrumb id="guide-breadcrumb" class="breadcrumb-container" />
     <div class="right-menu">
-      <!-- 组件 -->
+      <!-- 引导页组件-->
+      <guide class="right-menu-item hover-effect" />
       <!-- 搜索组件 -->
       <header-search class="right-menu-item hover-effect"></header-search>
       <!-- 全屏组件 -->
@@ -54,6 +55,7 @@ import LangSelect from '@/components/LangSelect'
 import ThemePicker from '@/components/ThemeSelect/index'
 import Screenfull from '@/components/Screenfull'
 import HeaderSearch from '@/components/HeaderSearch'
+import Guide from '@/components/Guide'
 const store = useStore()
 const logout = () => {
   store.dispatch('user/logout')

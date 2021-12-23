@@ -2,9 +2,9 @@
  * @Author: xujian
  * @Date: 2021-12-22 09:43:29
  * @LastEditors: xujian
- * @LastEditTime: 2021-12-22 17:21:31
+ * @LastEditTime: 2021-12-23 22:44:47
  * @Description: 动态换肤组件
- * @FilePath: \imooc-admin\src\components\ThemeSelect\index.vue
+ * @FilePath: /imooc-admin/src/components/ThemeSelect/index.vue
 -->
 <template>
   <!--主题图标v-bind：https://v3.cn.vuejs.org/api/instance-properties.html#attrs -->
@@ -12,7 +12,7 @@
     <!-- 图标 -->
     <div>
       <el-tooltip :content="$t('msg.navBar.themeChange')">
-        <svg-icon icon="change-theme" />
+        <svg-icon id="guide-theme" icon="change-theme" />
       </el-tooltip>
     </div>
     <!-- menu -->

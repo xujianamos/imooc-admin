@@ -2,7 +2,7 @@
  * @Author: xujian
  * @Date: 2021-12-15 10:29:11
  * @LastEditors: xujian
- * @LastEditTime: 2021-12-23 21:53:28
+ * @LastEditTime: 2021-12-23 22:45:15
  * @Description: Layout布局页面
  * @FilePath: /imooc-admin/src/layout/index.vue
 -->
@@ -15,7 +15,7 @@
         <!-- 顶部的 navbar -->
         <navbar />
         <!-- tags -->
-        <tags-view></tags-view>
+        <tags-view id="guide-tags"></tags-view>
       </div>
       <!-- 内容区 -->
       <app-main />

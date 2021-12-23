@@ -2,7 +2,7 @@
  * @Author: xujian
  * @Date: 2021-12-23 21:50:41
  * @LastEditors: xujian
- * @LastEditTime: 2021-12-23 22:19:08
+ * @LastEditTime: 2021-12-24 00:11:38
  * @Description: tagsview组件
  * @FilePath: /imooc-admin/src/components/tagsview/index.vue
 -->
@@ -22,6 +22,7 @@
         @contextmenu.prevent="openMenu($event, index)"
       >
         {{ tag.title }}
+        <!-- 删除图标 -->
         <i v-show="!isActive(tag)" class="el-icon-close" @click.prevent.stop="onCloseClick(index)" />
       </router-link>
     </el-scrollbar>

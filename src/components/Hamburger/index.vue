@@ -2,13 +2,13 @@
  * @Author: xujian
  * @Date: 2021-12-17 15:06:33
  * @LastEditors: xujian
- * @LastEditTime: 2021-12-19 23:46:19
+ * @LastEditTime: 2021-12-23 22:43:07
  * @Description: 导航栏左侧的折叠按钮组件
  * @FilePath: /imooc-admin/src/components/Hamburger/index.vue
 -->
 <template>
   <div class="hamburger-container" @click="toggleClick">
-    <svg-icon class="hamburger" :icon="icon"></svg-icon>
+    <svg-icon id="guide-hamburger" class="hamburger" :icon="icon"></svg-icon>
   </div>
 </template>
 

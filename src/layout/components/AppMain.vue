@@ -2,7 +2,7 @@
  * @Author: xujian
  * @Date: 2021-12-15 20:12:06
  * @LastEditors: xujian
- * @LastEditTime: 2021-12-23 22:21:59
+ * @LastEditTime: 2021-12-24 00:12:14
  * @Description: 内容区
  * @FilePath: /imooc-admin/src/layout/components/AppMain.vue
 -->
@@ -26,6 +26,7 @@ import { useRoute } from 'vue-router'
 import { useStore } from 'vuex'
 
 const route = useRoute()
+const store = useStore()
 
 /**
  * 生成 title
@@ -60,10 +61,10 @@ watchSwitchLang(() => {
 /**
  * 监听路由变化
  */
-const store = useStore()
 watch(
   route,
   (to, from) => {
+    // 并不是所有的路由都需要保存的
     if (!isTags(to.path)) return
     const { fullPath, meta, name, params, path, query } = to
     store.commit('app/addTagsViewList', {
