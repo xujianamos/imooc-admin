@@ -2,11 +2,11 @@
  * @Author: xujian
  * @Date: 2021-12-17 15:04:46
  * @LastEditors: xujian
- * @LastEditTime: 2021-12-21 15:07:41
+ * @LastEditTime: 2021-12-23 22:05:57
  * @Description:app
- * @FilePath: \imooc-admin\src\store\modules\app.js
+ * @FilePath: /imooc-admin/src/store/modules/app.js
  */
-import { LANG } from '@/constant'
+import { LANG, TAGS_VIEW } from '@/constant'
 import { getItem, setItem } from '@/utils/storage'
 
 export default {
@@ -15,7 +15,9 @@ export default {
     // 左侧是否折叠
     sidebarOpened: true,
     // 设置国际化语言
-    language: getItem(LANG) || 'zh'
+    language: getItem(LANG) || 'zh',
+    // tags数据
+    tagsViewList: getItem(TAGS_VIEW) || []
   }),
   mutations: {
     triggerSidebarOpened(state) {
@@ -27,6 +29,45 @@ export default {
     setLanguage(state, lang) {
       setItem(LANG, lang)
       state.language = lang
+    },
+    /**
+     * 添加 tags
+     */
+    addTagsViewList(state, tag) {
+      const isFind = state.tagsViewList.find(item => {
+        return item.path === tag.path
+      })
+      // 处理重复
+      if (!isFind) {
+        state.tagsViewList.push(tag)
+        setItem(TAGS_VIEW, state.tagsViewList)
+      }
+    },
+    /**
+     * 为指定的 tag 修改 title
+     */
+    changeTagsView(state, { index, tag }) {
+      state.tagsViewList[index] = tag
+      setItem(TAGS_VIEW, state.tagsViewList)
+    },
+    /**
+     * 删除 tag
+     * @param {type: 'other'||'right'||'index', index: index} payload
+     */
+    removeTagsView(state, payload) {
+      // 删除当前
+      if (payload.type === 'index') {
+        state.tagsViewList.splice(payload.index, 1)
+        return
+      } else if (payload.type === 'other') {
+        // 删除其他
+        state.tagsViewList.splice(payload.index + 1, state.tagsViewList.length - payload.index + 1)
+        state.tagsViewList.splice(0, payload.index)
+      } else if (payload.type === 'right') {
+        // 删除右侧
+        state.tagsViewList.splice(payload.index + 1, state.tagsViewList.length - payload.index + 1)
+      }
+      setItem(TAGS_VIEW, state.tagsViewList)
     }
   },
   actions: {}

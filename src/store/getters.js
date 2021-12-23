@@ -2,9 +2,9 @@
  * @Author: xujian
  * @Date: 2021-12-15 10:53:42
  * @LastEditors: xujian
- * @LastEditTime: 2021-12-22 11:16:45
+ * @LastEditTime: 2021-12-23 21:55:02
  * @Description:全局getter
- * @FilePath: \imooc-admin\src\store\getters.js
+ * @FilePath: /imooc-admin/src/store/getters.js
  */
 // import variables from '@/styles/variables.scss'
 import { MAIN_COLOR } from '@/constant'
@@ -28,6 +28,7 @@ const getters = {
   },
   sidebarOpened: state => state.app.sidebarOpened,
   language: state => state.app.language,
-  mainColor: state => state.theme.mainColor
+  mainColor: state => state.theme.mainColor,
+  tagsViewList: state => state.app.tagsViewList
 }
 export default getters

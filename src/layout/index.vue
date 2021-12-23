@@ -2,9 +2,9 @@
  * @Author: xujian
  * @Date: 2021-12-15 10:29:11
  * @LastEditors: xujian
- * @LastEditTime: 2021-12-22 11:17:24
+ * @LastEditTime: 2021-12-23 21:53:28
  * @Description: Layout布局页面
- * @FilePath: \imooc-admin\src\layout\index.vue
+ * @FilePath: /imooc-admin/src/layout/index.vue
 -->
 <template>
   <div class="app-wrapper" :class="[$store.getters.sidebarOpened ? 'openSidebar' : 'hideSidebar']">
@@ -14,6 +14,8 @@
       <div class="fixed-header">
         <!-- 顶部的 navbar -->
         <navbar />
+        <!-- tags -->
+        <tags-view></tags-view>
       </div>
       <!-- 内容区 -->
       <app-main />
@@ -25,6 +27,7 @@
 import Navbar from './components/Navbar'
 import Sidebar from './components/Sidebar'
 import AppMain from './components/AppMain'
+import TagsView from '@/components/TagsView'
 
 // import variables from '@/styles/variables.scss'
 import {} from 'vue'
