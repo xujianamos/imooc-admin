@@ -2,7 +2,7 @@
  * @Author: xujian
  * @Date: 2021-12-17 15:04:46
  * @LastEditors: xujian
- * @LastEditTime: 2021-12-23 22:05:57
+ * @LastEditTime: 2021-12-25 15:02:49
  * @Description:app
  * @FilePath: /imooc-admin/src/store/modules/app.js
  */
@@ -61,7 +61,9 @@ export default {
         return
       } else if (payload.type === 'other') {
         // 删除其他
+        // 删除当前位置之后的所有
         state.tagsViewList.splice(payload.index + 1, state.tagsViewList.length - payload.index + 1)
+        // 删除当前位置之前的所有
         state.tagsViewList.splice(0, payload.index)
       } else if (payload.type === 'right') {
         // 删除右侧

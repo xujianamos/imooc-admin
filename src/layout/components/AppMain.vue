@@ -2,12 +2,13 @@
  * @Author: xujian
  * @Date: 2021-12-15 20:12:06
  * @LastEditors: xujian
- * @LastEditTime: 2021-12-24 00:12:14
+ * @LastEditTime: 2021-12-25 15:10:49
  * @Description: 内容区
  * @FilePath: /imooc-admin/src/layout/components/AppMain.vue
 -->
 <template>
   <div class="app-main">
+    <!-- 带有切换动画，并且具备组件缓存 -->
     <router-view v-slot="{ Component, route }">
       <transition name="fade-transform" mode="out-in">
         <keep-alive>

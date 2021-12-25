@@ -2,18 +2,21 @@
  * @Author: xujian
  * @Date: 2021-12-23 21:59:51
  * @LastEditors: xujian
- * @LastEditTime: 2021-12-23 22:18:30
+ * @LastEditTime: 2021-12-25 14:49:13
  * @Description: tags右键展示组件
  * @FilePath: /imooc-admin/src/components/TagsView/ContextMenu.vue
 -->
 <template>
   <ul class="context-menu-container">
+    <!-- 刷新 -->
     <li @click="onRefreshClick">
       {{ $t('msg.tagsView.refresh') }}
     </li>
+    <!-- 关闭右侧 -->
     <li @click="onCloseRightClick">
       {{ $t('msg.tagsView.closeRight') }}
     </li>
+    <!-- 关闭其他 -->
     <li @click="onCloseOtherClick">
       {{ $t('msg.tagsView.closeOther') }}
     </li>
