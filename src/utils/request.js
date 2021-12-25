@@ -2,7 +2,7 @@
  * @Author: xujian
  * @Date: 2021-12-13 17:53:54
  * @LastEditors: xujian
- * @LastEditTime: 2021-12-19 14:11:19
+ * @LastEditTime: 2021-12-25 22:18:35
  * @Description:封装的网络请求
  * @FilePath: /imooc-admin/src/utils/request.js
  */
@@ -31,6 +31,8 @@ service.interceptors.request.use(
       // 如果token存在 注入token
       config.headers.Authorization = `Bearer ${store.getters.token}`
     }
+    // 配置接口国际化
+    config.headers['Accept-Language'] = store.getters.language
     return config // 必须返回配置
   },
   error => {
