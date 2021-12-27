@@ -2,7 +2,7 @@
  * @Author: xujian
  * @Date: 2021-12-07 10:57:32
  * @LastEditors: xujian
- * @LastEditTime: 2021-12-18 17:53:17
+ * @LastEditTime: 2021-12-27 15:11:07
  * @Description:项目入口文件
  * @FilePath: /imooc-admin/src/main.js
  */
@@ -21,7 +21,10 @@ import './permission'
 
 // 导入 svgIcon
 import installIcons from '@/icons'
+// filter
+import installFilter from '@/filter'
 const app = createApp(App)
 installElementPlus(app)
 installIcons(app)
+installFilter(app)
 app.use(store).use(router).use(i18n).mount('#app')
