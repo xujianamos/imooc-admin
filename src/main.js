@@ -2,9 +2,9 @@
  * @Author: xujian
  * @Date: 2021-12-07 10:57:32
  * @LastEditors: xujian
- * @LastEditTime: 2021-12-27 15:11:07
+ * @LastEditTime: 2022-01-05 15:34:09
  * @Description:项目入口文件
- * @FilePath: /imooc-admin/src/main.js
+ * @FilePath: \imooc-admin\src\main.js
  */
 import { createApp } from 'vue'
 import App from './App.vue'
@@ -23,8 +23,11 @@ import './permission'
 import installIcons from '@/icons'
 // filter
 import installFilter from '@/filter'
+// 指令
+import installDirective from '@/directives'
 const app = createApp(App)
 installElementPlus(app)
 installIcons(app)
 installFilter(app)
+installDirective(app)
 app.use(store).use(router).use(i18n).mount('#app')

@@ -2,9 +2,9 @@
  * @Author: xujian
  * @Date: 2021-12-16 14:55:57
  * @LastEditors: xujian
- * @LastEditTime: 2021-12-27 19:56:57
+ * @LastEditTime: 2022-01-05 14:21:13
  * @Description: 导入
- * @FilePath: /imooc-admin/src/views/import/index.vue
+ * @FilePath: \imooc-admin\src\views\import\index.vue
 -->
 <template>
   <upload-excel :onSuccess="onSuccess"></upload-excel>
@@ -12,12 +12,14 @@
 
 <script setup>
 import {} from 'vue'
+import { useI18n } from 'vue-i18n'
 import UploadExcel from '@/components/UploadExcel'
 import { generateData } from './utils'
 import { ElMessage } from 'element-plus'
 import { userBatchImport } from '@/api/user-manage.js'
 import { useRouter } from 'vue-router'
 const router = useRouter()
+const i18n = useI18n()
 /**
  * 数据解析成功之后的回调
  */

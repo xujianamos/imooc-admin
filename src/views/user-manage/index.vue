@@ -2,9 +2,9 @@
  * @Author: xujian
  * @Date: 2021-12-16 14:57:47
  * @LastEditors: xujian
- * @LastEditTime: 2021-12-27 15:14:20
+ * @LastEditTime: 2022-01-05 15:30:17
  * @Description: 用户管理列表页
- * @FilePath: /imooc-admin/src/views/user-manage/index.vue
+ * @FilePath: \imooc-admin\src\views\user-manage\index.vue
 -->
 <template>
   <div class="user-manage-container">
@@ -13,7 +13,7 @@
         <!-- 导入按钮 -->
         <el-button type="primary" @click="onImportExcelClick"> {{ $t('msg.excel.importExcel') }}</el-button>
         <!-- 导出按钮 -->
-        <el-button type="success">
+        <el-button type="success" @click="onToExcelClick">
           {{ $t('msg.excel.exportExcel') }}
         </el-button>
       </div>
@@ -52,13 +52,13 @@
         </el-table-column>
         <!-- 操作 -->
         <el-table-column :label="$t('msg.excel.action')" fixed="right" width="260">
-          <template #default>
+          <template #default="{ row }">
             <!-- 查看 -->
-            <el-button type="primary" size="mini">{{ $t('msg.excel.show') }}</el-button>
+            <el-button type="primary" size="mini" @click="onShowClick(row._id)">{{ $t('msg.excel.show') }}</el-button>
             <!-- 角色 -->
             <el-button type="info" size="mini">{{ $t('msg.excel.showRole') }}</el-button>
             <!-- 删除 -->
-            <el-button type="danger" size="mini">{{ $t('msg.excel.remove') }}</el-button>
+            <el-button type="danger" size="mini" @click="onRemoveClick(row)">{{ $t('msg.excel.remove') }}</el-button>
           </template>
         </el-table-column>
       </el-table>
@@ -76,19 +76,24 @@
       </el-pagination>
     </el-card>
   </div>
+  <export-to-excel v-model="exportToExcelVisible"></export-to-excel>
 </template>
 
 <script setup>
-import { ref } from 'vue'
-import { getUserManageList } from '@/api/user-manage'
+import { ref, onActivated } from 'vue'
+import { getUserManageList, deleteUser } from '@/api/user-manage'
 import { watchSwitchLang } from '@/utils/i18n'
 import { useRouter } from 'vue-router'
+import { useI18n } from 'vue-i18n'
+import { ElMessageBox, ElMessage } from 'element-plus'
+import ExportToExcel from './components/Export2Excel.vue'
 
 // 数据相关
 const tableData = ref([])
 const total = ref(0)
 const page = ref(1)
 const size = ref(2)
+
 // 获取数据的方法
 const getListData = async () => {
   const result = await getUserManageList({
@@ -101,6 +106,8 @@ const getListData = async () => {
 getListData()
 // 监听语言切换
 watchSwitchLang(getListData)
+// 处理导入用户后数据不重新加载的问题
+onActivated(getListData)
 
 // 分页相关
 /**
@@ -125,6 +132,33 @@ const router = useRouter()
  */
 const onImportExcelClick = () => {
   router.push('/user/import')
+}
+/**
+ * 查看按钮点击事件
+ */
+const onShowClick = id => {
+  router.push(`/user/info/${id}`)
+}
+/**
+ * 删除按钮点击事件
+ */
+const i18n = useI18n()
+const onRemoveClick = row => {
+  ElMessageBox.confirm(i18n.t('msg.excel.dialogTitle1') + row.username + i18n.t('msg.excel.dialogTitle2'), {
+    type: 'warning'
+  }).then(async () => {
+    await deleteUser(row._id)
+    ElMessage.success(i18n.t('msg.excel.removeSuccess'))
+    // 重新渲染数据
+    getListData()
+  })
+}
+/**
+ * excel 导出点击事件
+ */
+const exportToExcelVisible = ref(false)
+const onToExcelClick = () => {
+  exportToExcelVisible.value = true
 }
 </script>
 

@@ -2,7 +2,7 @@
  * @Author: xujian
  * @Date: 2021-12-16 21:42:57
  * @LastEditors: xujian
- * @LastEditTime: 2021-12-21 17:46:35
+ * @LastEditTime: 2022-01-05 15:29:32
  * @Description:私有路由表
  * @FilePath: \imooc-admin\src\router\privateRoutes.js
  */
@@ -46,6 +46,7 @@ const privateRoutes = [
         path: '/user/info/:id',
         name: 'userInfo',
         component: () => import('@/views/user-info/index'),
+        props: true,
         meta: {
           title: 'userInfo'
         }
