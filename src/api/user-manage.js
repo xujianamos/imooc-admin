@@ -2,7 +2,7 @@
  * @Author: xujian
  * @Date: 2021-12-27 14:04:33
  * @LastEditors: xujian
- * @LastEditTime: 2022-01-05 15:28:39
+ * @LastEditTime: 2022-01-05 17:23:36
  * @Description:员工管理相关接口
  * @FilePath: \imooc-admin\src\api\user-manage.js
  */
@@ -61,5 +61,29 @@ export const getUserManageAllList = () => {
 export const userDetail = id => {
   return request({
     url: `/user-manage/detail/${id}`
+  })
+}
+/**
+ * @description: 获取指定用户角色
+ * @param {*}
+ * @return {*}
+ */
+export const userRoles = id => {
+  return request({
+    url: `/user-manage/role/${id}`
+  })
+}
+/**
+ * @description: 分用户分配角色
+ * @param {*}
+ * @return {*}
+ */
+export const updateRole = (id, roles) => {
+  return request({
+    url: `/user-manage/update-role/${id}`,
+    method: 'POST',
+    data: {
+      roles
+    }
   })
 }

@@ -2,7 +2,7 @@
  * @Author: xujian
  * @Date: 2021-12-16 14:57:47
  * @LastEditors: xujian
- * @LastEditTime: 2022-01-05 15:30:17
+ * @LastEditTime: 2022-01-05 17:27:35
  * @Description: 用户管理列表页
  * @FilePath: \imooc-admin\src\views\user-manage\index.vue
 -->
@@ -56,7 +56,7 @@
             <!-- 查看 -->
             <el-button type="primary" size="mini" @click="onShowClick(row._id)">{{ $t('msg.excel.show') }}</el-button>
             <!-- 角色 -->
-            <el-button type="info" size="mini">{{ $t('msg.excel.showRole') }}</el-button>
+            <el-button type="info" size="mini" @click="onShowRoleClick(row)">{{ $t('msg.excel.showRole') }}</el-button>
             <!-- 删除 -->
             <el-button type="danger" size="mini" @click="onRemoveClick(row)">{{ $t('msg.excel.remove') }}</el-button>
           </template>
@@ -77,16 +77,18 @@
     </el-card>
   </div>
   <export-to-excel v-model="exportToExcelVisible"></export-to-excel>
+  <roles-dialog v-model="roleDialogVisible" :userId="selectUserId" @updateRole="getListData"></roles-dialog>
 </template>
 
 <script setup>
-import { ref, onActivated } from 'vue'
+import { ref, onActivated, watch } from 'vue'
 import { getUserManageList, deleteUser } from '@/api/user-manage'
 import { watchSwitchLang } from '@/utils/i18n'
 import { useRouter } from 'vue-router'
 import { useI18n } from 'vue-i18n'
 import { ElMessageBox, ElMessage } from 'element-plus'
 import ExportToExcel from './components/Export2Excel.vue'
+import RolesDialog from './components/roles.vue'
 
 // 数据相关
 const tableData = ref([])
@@ -160,6 +162,19 @@ const exportToExcelVisible = ref(false)
 const onToExcelClick = () => {
   exportToExcelVisible.value = true
 }
+/**
+ * 查看角色的点击事件
+ */
+const roleDialogVisible = ref(false)
+const selectUserId = ref('')
+const onShowRoleClick = row => {
+  selectUserId.value = row._id
+  roleDialogVisible.value = true
+}
+// 保证每次打开重新获取用户角色数据
+watch(roleDialogVisible, val => {
+  if (!val) selectUserId.value = ''
+})
 </script>
 
 <style lang="scss" scoped>
