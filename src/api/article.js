@@ -2,7 +2,7 @@
  * @Author: xujian
  * @Date: 2022-01-06 10:34:51
  * @LastEditors: xujian
- * @LastEditTime: 2022-01-06 10:57:11
+ * @LastEditTime: 2022-01-06 15:56:01
  * @Description:文章接口
  * @FilePath: \imooc-admin\src\api\article.js
  */
@@ -49,5 +49,29 @@ export const deleteArticle = articleId => {
 export const articleDetail = articleId => {
   return request({
     url: `/article/${articleId}`
+  })
+}
+/**
+ * @description: 创建文章
+ * @param {*}
+ * @return {*}
+ */
+export const createArticle = data => {
+  return request({
+    url: '/article/create',
+    method: 'POST',
+    data
+  })
+  /**
+   * @description:  编辑文章详情
+   * @param {*}
+   * @return {*}
+   */
+}
+export const articleEdit = data => {
+  return request({
+    url: '/article/edit',
+    method: 'POST',
+    data
   })
 }

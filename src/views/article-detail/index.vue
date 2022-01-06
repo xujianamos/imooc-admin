@@ -2,7 +2,7 @@
  * @Author: xujian
  * @Date: 2021-12-16 14:53:53
  * @LastEditors: xujian
- * @LastEditTime: 2022-01-06 10:57:23
+ * @LastEditTime: 2022-01-06 15:53:46
  * @Description: 文章详情
  * @FilePath: \imooc-admin\src\views\article-detail\index.vue
 -->
@@ -20,7 +20,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { useRoute } from 'vue-router'
+import { useRoute, useRouter } from 'vue-router'
 import { articleDetail } from '@/api/article'
 
 // 获取数据
@@ -31,6 +31,12 @@ const getArticleDetail = async () => {
   detail.value = await articleDetail(articleId)
 }
 getArticleDetail()
+
+// 编辑
+const router = useRouter()
+const onEditClick = () => {
+  router.push(`/article/editor/${articleId}`)
+}
 </script>
 <style lang="scss" scoped>
 .article-detail-container {
