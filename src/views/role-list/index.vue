@@ -2,7 +2,7 @@
  * @Author: xujian
  * @Date: 2021-12-16 14:57:00
  * @LastEditors: xujian
- * @LastEditTime: 2022-01-05 17:38:10
+ * @LastEditTime: 2022-01-06 10:01:25
  * @Description: 角色列表
  * @FilePath: \imooc-admin\src\views\role-list\index.vue
 -->
@@ -14,7 +14,12 @@
         <el-table-column :label="$t('msg.role.name')" prop="title"> </el-table-column>
         <el-table-column :label="$t('msg.role.desc')" prop="describe"> </el-table-column>
         <el-table-column :label="$t('msg.role.action')" prop="action" width="260" #default="{ row }">
-          <el-button type="primary" size="mini" @click="onDistributePermissionClick(row)">
+          <el-button
+            type="primary"
+            size="mini"
+            v-permission="['distributePermission']"
+            @click="onDistributePermissionClick(row)"
+          >
             {{ $t('msg.role.assignPermissions') }}
           </el-button>
         </el-table-column>

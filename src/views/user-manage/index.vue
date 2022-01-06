@@ -2,7 +2,7 @@
  * @Author: xujian
  * @Date: 2021-12-16 14:57:47
  * @LastEditors: xujian
- * @LastEditTime: 2022-01-05 17:27:35
+ * @LastEditTime: 2022-01-06 10:01:49
  * @Description: 用户管理列表页
  * @FilePath: \imooc-admin\src\views\user-manage\index.vue
 -->
@@ -11,7 +11,9 @@
     <el-card class="header">
       <div>
         <!-- 导入按钮 -->
-        <el-button type="primary" @click="onImportExcelClick"> {{ $t('msg.excel.importExcel') }}</el-button>
+        <el-button type="primary" @click="onImportExcelClick" v-permission="['importUser']">
+          {{ $t('msg.excel.importExcel') }}</el-button
+        >
         <!-- 导出按钮 -->
         <el-button type="success" @click="onToExcelClick">
           {{ $t('msg.excel.exportExcel') }}
@@ -56,9 +58,13 @@
             <!-- 查看 -->
             <el-button type="primary" size="mini" @click="onShowClick(row._id)">{{ $t('msg.excel.show') }}</el-button>
             <!-- 角色 -->
-            <el-button type="info" size="mini" @click="onShowRoleClick(row)">{{ $t('msg.excel.showRole') }}</el-button>
+            <el-button type="info" size="mini" @click="onShowRoleClick(row)" v-permission="['distributeRole']">{{
+              $t('msg.excel.showRole')
+            }}</el-button>
             <!-- 删除 -->
-            <el-button type="danger" size="mini" @click="onRemoveClick(row)">{{ $t('msg.excel.remove') }}</el-button>
+            <el-button type="danger" size="mini" @click="onRemoveClick(row)" v-permission="['removeUser']">{{
+              $t('msg.excel.remove')
+            }}</el-button>
           </template>
         </el-table-column>
       </el-table>

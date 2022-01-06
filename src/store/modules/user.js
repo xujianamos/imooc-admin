@@ -2,15 +2,15 @@
  * @Author: xujian
  * @Date: 2021-12-13 17:55:39
  * @LastEditors: xujian
- * @LastEditTime: 2021-12-19 13:49:35
+ * @LastEditTime: 2022-01-06 09:58:13
  * @Description:用于处理所有和 用户相关 的内容
- * @FilePath: /imooc-admin/src/store/modules/user.js
+ * @FilePath: \imooc-admin\src\store\modules\user.js
  */
 import { login, getUserInfo } from '@/api/sys'
 import md5 from 'md5'
 import { setItem, getItem, removeAllItem } from '@/utils/storage'
 import { TOKEN } from '@/constant'
-import router from '@/router'
+import router, { resetRouter } from '@/router'
 import { setTimeStamp } from '@/utils/auth'
 export default {
   namespaced: true,
@@ -71,6 +71,8 @@ export default {
       commit('setUserInfo', {})
       // 清楚本地所有缓存数据
       removeAllItem()
+      // 删除动态添加的路由表
+      resetRouter()
       // 退回到登录页面
       router.push('/login')
     }
