@@ -2,7 +2,7 @@
  * @Author: xujian
  * @Date: 2021-12-16 14:57:00
  * @LastEditors: xujian
- * @LastEditTime: 2022-01-06 10:01:25
+ * @LastEditTime: 2022-01-10 16:34:43
  * @Description: 角色列表
  * @FilePath: \imooc-admin\src\views\role-list\index.vue
 -->
@@ -10,9 +10,13 @@
   <div class="">
     <el-card>
       <el-table :data="allRoles" border style="width: 100%">
+        <!-- 序号 -->
         <el-table-column :label="$t('msg.role.index')" type="index" width="120"> </el-table-column>
+        <!-- 名称 -->
         <el-table-column :label="$t('msg.role.name')" prop="title"> </el-table-column>
+        <!-- 描述 -->
         <el-table-column :label="$t('msg.role.desc')" prop="describe"> </el-table-column>
+        <!-- 操作 -->
         <el-table-column :label="$t('msg.role.action')" prop="action" width="260" #default="{ row }">
           <el-button
             type="primary"

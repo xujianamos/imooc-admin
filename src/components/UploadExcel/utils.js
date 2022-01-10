@@ -2,13 +2,16 @@
  * @Author: xujian
  * @Date: 2021-12-27 19:26:52
  * @LastEditors: xujian
- * @LastEditTime: 2021-12-27 19:33:59
+ * @LastEditTime: 2022-01-10 09:47:25
  * @Description:
- * @FilePath: /imooc-admin/src/components/UploadExcel/utils.js
+ * @FilePath: \imooc-admin\src\components\UploadExcel\utils.js
  */
 import XLSX from 'xlsx'
+
 /**
- * 获取表头（通用方式）
+ * @description: 获取表头（通用方式）
+ * @param {*}
+ * @return {*}
  */
 export const getHeaderRow = sheet => {
   const headers = []
@@ -26,7 +29,11 @@ export const getHeaderRow = sheet => {
   }
   return headers
 }
-
+/**
+ * @description: 判断是否是excel文件
+ * @param {*}
+ * @return {*}
+ */
 export const isExcel = file => {
   return /\.(xlsx|xls|csv)$/.test(file.name)
 }

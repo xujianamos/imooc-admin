@@ -2,7 +2,7 @@
  * @Author: xujian
  * @Date: 2021-12-16 14:55:57
  * @LastEditors: xujian
- * @LastEditTime: 2022-01-05 14:21:13
+ * @LastEditTime: 2022-01-10 09:59:06
  * @Description: 导入
  * @FilePath: \imooc-admin\src\views\import\index.vue
 -->
@@ -29,10 +29,8 @@ const onSuccess = async ({ header, results }) => {
   }
   const updateData = generateData(results)
   await userBatchImport(updateData)
-  ElMessage.success({
-    message: results.length + i18n.t('msg.excel.importSuccess'),
-    type: 'success'
-  })
+  ElMessage.success(results.length + i18n.t('msg.excel.importSuccess'))
+  // 跳转回员工管理页面
   router.push('/user/manage')
 }
 </script>

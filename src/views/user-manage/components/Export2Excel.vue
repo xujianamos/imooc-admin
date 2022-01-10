@@ -2,13 +2,15 @@
  * @Author: xujian
  * @Date: 2022-01-05 14:42:01
  * @LastEditors: xujian
- * @LastEditTime: 2022-01-05 15:26:03
+ * @LastEditTime: 2022-01-10 15:38:40
  * @Description: excel导出弹出层组件
  * @FilePath: \imooc-admin\src\views\user-manage\components\Export2Excel.vue
 -->
 <template>
   <el-dialog :title="$t('msg.excel.title')" :model-value="modelValue" @close="closed" width="30%">
+    <!-- 导出的文件名 -->
     <el-input v-model="excelName" :placeholder="$t('msg.excel.placeholder')"></el-input>
+    <!-- 按钮 -->
     <template #footer>
       <span class="dialog-footer">
         <el-button @click="closed">{{ $t('msg.excel.close') }}</el-button>
@@ -24,8 +26,8 @@ import { useI18n } from 'vue-i18n'
 import { watchSwitchLang } from '@/utils/i18n.js'
 import { getUserManageAllList } from '@/api/user-manage'
 import { USER_RELATIONS } from './Export2ExcelConstants'
-import { dateFormat } from '@/filter'
-// 导入工具包
+import { dateFilter } from '@/filter'
+// 动态导入工具包
 const excel = await import('@/utils/Export2Excel')
 
 defineProps({
@@ -37,7 +39,9 @@ defineProps({
 const emits = defineEmits(['update:modelValue'])
 
 const i18n = useI18n()
+// 默认导出的文件名称
 let exportDefaultName = i18n.t('msg.excel.defaultName')
+// 文件名称
 const excelName = ref('')
 excelName.value = exportDefaultName
 watchSwitchLang(() => {
@@ -51,6 +55,7 @@ const loading = ref(false)
 const onConfirm = async () => {
   loading.value = true
   const allUser = (await getUserManageAllList()).list
+  // 对英文key转换为中文key
   const data = formatJson(USER_RELATIONS, allUser)
   excel.export_json_to_excel({
     // excel 表头
@@ -74,6 +79,7 @@ const closed = () => {
   loading.value = false
   emits('update:modelValue', false)
 }
+// 当我们使用 export_json_to_excel的时候，我们传递的 data 数据，它必须是一个二维数组
 // 该方法负责将数组转化成二维数组
 const formatJson = (headers, rows) => {
   // 首先遍历数组
@@ -82,9 +88,9 @@ const formatJson = (headers, rows) => {
     return Object.keys(headers).map(key => {
       // 时间特殊处理
       if (headers[key] === 'openTime') {
-        return dateFormat(item[headers[key]])
+        return dateFilter(item[headers[key]])
       }
-      // 角色特殊处理
+      // 角色特殊处理：因为一个人有多个角色，返回的是数组
       if (headers[key] === 'role') {
         const roles = item[headers[key]]
 

@@ -2,12 +2,13 @@
  * @Author: xujian
  * @Date: 2022-01-05 15:51:31
  * @LastEditors: xujian
- * @LastEditTime: 2022-01-05 17:29:36
+ * @LastEditTime: 2022-01-10 17:48:19
  * @Description: 为用户分配角色弹出层
  * @FilePath: \imooc-admin\src\views\user-manage\components\roles.vue
 -->
 <template>
   <el-dialog :title="$t('msg.excel.roleDialogTitle')" :model-value="modelValue" @close="closed">
+    <!-- 渲染角色 -->
     <el-checkbox-group v-model="userRoleTitleList">
       <el-checkbox v-for="item in allRoleList" :key="item.id" :label="item.title"></el-checkbox>
     </el-checkbox-group>
@@ -80,6 +81,7 @@ const getUserRoles = async () => {
   const res = await userRoles(props.userId)
   userRoleTitleList.value = res.role.map(item => item.title)
 }
+// 监听userId是否有值
 watch(
   () => props.userId,
   val => {

@@ -2,9 +2,9 @@
  * @Author: xujian
  * @Date: 2021-12-27 19:12:41
  * @LastEditors: xujian
- * @LastEditTime: 2021-12-27 20:25:53
+ * @LastEditTime: 2022-01-10 09:39:28
  * @Description: excel上传
- * @FilePath: /imooc-admin/src/components/UploadExcel/index.vue
+ * @FilePath: \imooc-admin\src\components\UploadExcel\index.vue
 -->
 <template>
   <div class="upload-excel">
@@ -70,6 +70,7 @@ const handleDrop = e => {
     return
   }
   const rawFile = files[0]
+  // 对文件类型进行校验，只能上传excel类型的文件
   if (!isExcel(rawFile)) {
     ElMessage.error('文件必须是 .xlsx, .xls, .csv 格式')
     return false

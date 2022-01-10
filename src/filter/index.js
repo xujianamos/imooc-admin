@@ -2,7 +2,7 @@
  * @Author: xujian
  * @Date: 2021-12-27 14:27:40
  * @LastEditors: xujian
- * @LastEditTime: 2022-01-06 10:39:40
+ * @LastEditTime: 2022-01-10 15:38:17
  * @Description:全局属性
  * @FilePath: \imooc-admin\src\filter\index.js
  */
@@ -16,7 +16,7 @@ import store from '@/store'
  * @param {*}
  * @return {*}
  */
-const dateFilter = (val, format = 'YYYY-MM-DD') => {
+export const dateFilter = (val, format = 'YYYY-MM-DD') => {
   if (!isNaN(val)) {
     val = parseInt(val)
   }

@@ -2,7 +2,7 @@
  * @Author: xujian
  * @Date: 2021-12-16 14:57:47
  * @LastEditors: xujian
- * @LastEditTime: 2022-01-06 10:01:49
+ * @LastEditTime: 2022-01-10 14:48:51
  * @Description: 用户管理列表页
  * @FilePath: \imooc-admin\src\views\user-manage\index.vue
 -->
@@ -81,9 +81,11 @@
       >
       </el-pagination>
     </el-card>
+    <!-- 导出excel组件弹窗 -->
+    <export-to-excel v-model="exportToExcelVisible"></export-to-excel>
+    <!-- 角色详情弹窗组件 -->
+    <roles-dialog v-model="roleDialogVisible" :userId="selectUserId" @updateRole="getListData"></roles-dialog>
   </div>
-  <export-to-excel v-model="exportToExcelVisible"></export-to-excel>
-  <roles-dialog v-model="roleDialogVisible" :userId="selectUserId" @updateRole="getListData"></roles-dialog>
 </template>
 
 <script setup>
