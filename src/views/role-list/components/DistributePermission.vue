@@ -2,9 +2,9 @@
  * @Author: xujian
  * @Date: 2022-01-05 17:32:24
  * @LastEditors: xujian
- * @LastEditTime: 2022-01-05 17:40:04
+ * @LastEditTime: 2022-01-10 22:50:04
  * @Description: 为角色指定权限弹出层
- * @FilePath: \imooc-admin\src\views\role-list\components\DistributePermission.vue
+ * @FilePath: /imooc-admin/src/views/role-list/components/DistributePermission.vue
 -->
 <template>
   <el-dialog :title="$t('msg.excel.roleDialogTitle')" :model-value="modelValue" @close="closed">
@@ -83,6 +83,7 @@ const treeRef = ref(null)
 const getRolePermission = async () => {
   const checkedKeys = await rolePermission(props.roleId)
   // console.log(checkedKeys)
+  // 设置默认选中项
   treeRef.value.setCheckedKeys(checkedKeys)
 }
 
