@@ -2,16 +2,22 @@
  * @Author: xujian
  * @Date: 2022-01-06 10:00:06
  * @LastEditors: xujian
- * @LastEditTime: 2022-01-06 10:00:07
+ * @LastEditTime: 2022-01-11 22:52:59
  * @Description:权限指令
- * @FilePath: \imooc-admin\src\directives\permission.js
+ * @FilePath: /imooc-admin/src/directives/permission.js
  */
 import store from '@/store'
 
+/**
+ * @description: 按钮权限指令
+ * @param {*} el dom元素
+ * @param {object} binding 传递的值
+ * @return {*}
+ */
 function checkPermission(el, binding) {
   // 获取绑定的值，此处为权限
   const { value } = binding
-  // 获取所有的功能指令
+  // 获取当前用户的所有功能指令
   const points = store.getters.userInfo.permission.points
   // 当传入的指令集为数组时
   if (value && value instanceof Array) {
@@ -25,6 +31,7 @@ function checkPermission(el, binding) {
     }
   } else {
     // eslint-disabled-next-line
+    // 抛出错误提示必须是一个数组
     throw new Error('v-permission value is ["admin","editor"]')
   }
 }

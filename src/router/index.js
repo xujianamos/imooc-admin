@@ -2,9 +2,9 @@
  * @Author: xujian
  * @Date: 2021-12-07 10:57:32
  * @LastEditors: xujian
- * @LastEditTime: 2022-01-06 10:04:45
+ * @LastEditTime: 2022-01-11 22:47:49
  * @Description:路由配置
- * @FilePath: \imooc-admin\src\router\index.js
+ * @FilePath: /imooc-admin/src/router/index.js
  */
 import { createRouter, createWebHashHistory } from 'vue-router'
 import publicRoutes from './publicRoutes'
@@ -20,12 +20,13 @@ const router = createRouter({
 
 export default router
 /**
- * 初始化路由表
+ * 初始化路由表：退出登录时使用
  */
 export function resetRouter() {
   if (store.getters.userInfo && store.getters.userInfo.permission && store.getters.userInfo.permission.menus) {
     const menus = store.getters.userInfo.permission.menus
     menus.forEach(menu => {
+      // 循环删除路由
       router.removeRoute(menu)
     })
   }

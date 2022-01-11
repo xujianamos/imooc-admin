@@ -2,9 +2,9 @@
  * @Author: xujian
  * @Date: 2022-01-06 09:48:10
  * @LastEditors: xujian
- * @LastEditTime: 2022-01-06 09:48:10
- * @Description:
- * @FilePath: \imooc-admin\src\router\modules\RoleList.js
+ * @LastEditTime: 2022-01-11 22:31:14
+ * @Description:角色路由
+ * @FilePath: /imooc-admin/src/router/modules/RoleList.js
  */
 import layout from '@/layout'
 

@@ -2,9 +2,9 @@
  * @Author: xujian
  * @Date: 2021-12-15 10:53:05
  * @LastEditors: xujian
- * @LastEditTime: 2022-01-06 09:53:50
+ * @LastEditTime: 2022-01-11 22:42:13
  * @Description:鉴权操作
- * @FilePath: \imooc-admin\src\permission.js
+ * @FilePath: /imooc-admin/src/permission.js
  */
 import router from '@/router'
 import store from '@/store'
@@ -31,7 +31,7 @@ router.beforeEach(async (to, from, next) => {
       if (!store.getters.hasUserInfo) {
         // 触发获取用户信息的 action，并获取用户当前权限
         const { permission } = await store.dispatch('user/getUserInfo')
-        // 处理用户权限，筛选出需要添加的权限
+        // 处理用户权限，筛选出需要添加的路由
         const filterRoutes = await store.dispatch('permission/filterRoutes', permission.menus)
         // 利用 addRoute 循环添加
         filterRoutes.forEach(item => {

@@ -2,9 +2,9 @@
  * @Author: xujian
  * @Date: 2022-01-06 09:48:53
  * @LastEditors: xujian
- * @LastEditTime: 2022-01-06 09:48:53
- * @Description:
- * @FilePath: \imooc-admin\src\router\modules\ArticleCreate.js
+ * @LastEditTime: 2022-01-11 22:30:51
+ * @Description:文章创建相关路由
+ * @FilePath: /imooc-admin/src/router/modules/ArticleCreate.js
  */
 import layout from '@/layout'
 

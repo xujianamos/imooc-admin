@@ -2,9 +2,9 @@
  * @Author: xujian
  * @Date: 2022-01-06 09:48:27
  * @LastEditors: xujian
- * @LastEditTime: 2022-01-06 09:48:28
- * @Description:
- * @FilePath: \imooc-admin\src\router\modules\PermissionList.js
+ * @LastEditTime: 2022-01-11 22:31:07
+ * @Description:权限列表路由
+ * @FilePath: /imooc-admin/src/router/modules/PermissionList.js
  */
 import layout from '@/layout'
 
