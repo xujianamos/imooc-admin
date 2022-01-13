@@ -2,12 +2,13 @@
  * @Author: xujian
  * @Date: 2021-12-16 14:54:15
  * @LastEditors: xujian
- * @LastEditTime: 2022-01-12 17:23:00
+ * @LastEditTime: 2022-01-13 16:51:42
  * @Description: 文章排名
  * @FilePath: \imooc-admin\src\views\article-ranking\index.vue
 -->
 <template>
   <div class="article-ranking-container">
+    <!-- 动态展示列的选项设置 -->
     <el-card class="header">
       <div class="dynamic-box">
         <span class="title">{{ $t('msg.article.dynamicTitle') }}</span>
@@ -46,7 +47,7 @@
           <el-button type="danger" size="mini" @click="onRemoveClick(row)">{{ $t('msg.article.remove') }}</el-button>
         </el-table-column> -->
       </el-table>
-
+      <!-- 分页 -->
       <el-pagination
         class="pagination"
         @size-change="handleSizeChange"
