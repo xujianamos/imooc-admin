@@ -2,7 +2,7 @@
  * @Author: xujian
  * @Date: 2022-01-06 10:44:13
  * @LastEditors: xujian
- * @LastEditTime: 2022-01-06 10:45:29
+ * @LastEditTime: 2022-01-13 16:30:12
  * @Description:
  * @FilePath: \imooc-admin\src\views\article-ranking\dynamic\index.js
  */
@@ -13,7 +13,7 @@ import { watch, ref } from 'vue'
 // 暴露出动态列数据
 export const dynamicData = ref(getDynamicData())
 
-// 监听 语言变化
+// 监听语言变化
 watchSwitchLang(() => {
   // 重新获取国际化的值
   dynamicData.value = getDynamicData()

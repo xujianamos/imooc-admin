@@ -2,12 +2,13 @@
  * @Author: xujian
  * @Date: 2021-12-16 14:54:15
  * @LastEditors: xujian
- * @LastEditTime: 2022-01-06 10:58:25
+ * @LastEditTime: 2022-01-18 16:54:12
  * @Description: 文章排名
  * @FilePath: \imooc-admin\src\views\article-ranking\index.vue
 -->
 <template>
   <div class="article-ranking-container">
+    <!-- 动态展示列的选项设置 -->
     <el-card class="header">
       <div class="dynamic-box">
         <span class="title">{{ $t('msg.article.dynamicTitle') }}</span>
@@ -20,10 +21,13 @@
     </el-card>
     <el-card>
       <el-table ref="tableRef" :data="tableData" border>
+        <!-- 循环渲染解决动态列的显示 -->
         <el-table-column v-for="(item, index) in tableColumns" :key="index" :prop="item.prop" :label="item.label">
+          <!-- 单独处理时间显示 -->
           <template #default="{ row }" v-if="item.prop === 'publicDate'">
             {{ $filters.relativeTime(row.publicDate) }}
           </template>
+          <!-- 处理按钮 -->
           <template #default="{ row }" v-else-if="item.prop === 'action'">
             <el-button type="primary" size="mini" @click="onShowClick(row)">{{ $t('msg.article.show') }}</el-button>
             <el-button type="danger" size="mini" @click="onRemoveClick(row)">{{ $t('msg.article.remove') }}</el-button>
@@ -43,7 +47,7 @@
           <el-button type="danger" size="mini" @click="onRemoveClick(row)">{{ $t('msg.article.remove') }}</el-button>
         </el-table-column> -->
       </el-table>
-
+      <!-- 分页 -->
       <el-pagination
         class="pagination"
         @size-change="handleSizeChange"

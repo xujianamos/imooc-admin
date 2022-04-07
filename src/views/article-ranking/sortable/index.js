@@ -2,8 +2,8 @@
  * @Author: xujian
  * @Date: 2022-01-06 10:51:42
  * @LastEditors: xujian
- * @LastEditTime: 2022-01-06 10:58:50
- * @Description:排序相关逻辑
+ * @LastEditTime: 2022-01-13 16:52:35
+ * @Description:拖拽排序相关逻辑
  * @FilePath: \imooc-admin\src\views\article-ranking\sortable\index.js
  */
 import { ref } from 'vue'
@@ -16,7 +16,9 @@ import i18n from '@/i18n'
 export const tableRef = ref(null)
 
 /**
- * 初始化排序
+ * @description: 初始化排序
+ * @param {*}
+ * @return {*}
  */
 export const initSortable = (tableData, cb) => {
   // 设置拖拽效果
