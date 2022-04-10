@@ -2,7 +2,7 @@
  * @Author: xujian
  * @Date: 2021-12-09 10:58:55
  * @LastEditors: xujian
- * @LastEditTime: 2021-12-22 22:36:33
+ * @LastEditTime: 2022-04-09 21:56:46
  * @Description: svg组件
  * @FilePath: /imooc-admin/src/components/SvgIcon/index.vue
 -->
@@ -17,7 +17,7 @@
 
 <script setup>
 import { isExternal as external } from '@/utils/validate'
-import { defineProps, computed } from 'vue'
+import { computed } from 'vue'
 // 定义props
 const props = defineProps({
   // icon 图标

@@ -2,9 +2,9 @@
  * @Author: xujian
  * @Date: 2021-12-09 14:41:29
  * @LastEditors: xujian
- * @LastEditTime: 2021-12-09 14:42:05
+ * @LastEditTime: 2022-04-09 22:27:19
  * @Description:处理svg图标资源
- * @FilePath: \imooc-admin\src\icons\index.js
+ * @FilePath: /imooc-admin/src/icons/index.js
  */
 import SvgIcon from '@/components/SvgIcon'
 
@@ -16,6 +16,7 @@ const svgRequire = require.context('./svg', false, /\.svg$/)
 // 遍历图标，把图标作为 request 传入到 require 导入函数中，完成本地 svg 图标的导入
 svgRequire.keys().forEach(svgIcon => svgRequire(svgIcon))
 
+// 全局注册
 export default app => {
   app.component('svg-icon', SvgIcon)
 }

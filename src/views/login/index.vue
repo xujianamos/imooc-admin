@@ -2,25 +2,26 @@
  * @Author: xujian
  * @Date: 2021-12-09 09:20:21
  * @LastEditors: xujian
- * @LastEditTime: 2021-12-21 17:37:47
+ * @LastEditTime: 2022-04-09 21:38:01
  * @Description: 登录页面
- * @FilePath: \imooc-admin\src\views\login\index.vue
+ * @FilePath: /imooc-admin/src/views/login/index.vue
 -->
 <template>
   <div class="login-container">
     <el-form class="login-form" :model="loginForm" :rules="loginRules" ref="loginFromRef">
+      <!-- 标题区域 -->
       <div class="title-container">
         <h3 class="title">{{ $t('msg.login.title') }}</h3>
         <lang-select class="lang-select" />
       </div>
-      <!-- username -->
+      <!-- 用户名 -->
       <el-form-item prop="username">
         <span class="svg-container">
           <svg-icon icon="user"></svg-icon>
         </span>
         <el-input placeholder="username" name="username" type="text" v-model="loginForm.username"></el-input>
       </el-form-item>
-      <!-- password -->
+      <!-- 密码 -->
       <el-form-item prop="password">
         <span class="svg-container">
           <svg-icon icon="password"></svg-icon>
@@ -145,7 +146,7 @@ $cursor: #fff;
 
       input {
         background: transparent;
-        border: 0px;
+        border: none;
         -webkit-appearance: none;
         border-radius: 0px;
         padding: 12px 5px 12px 15px;
@@ -183,6 +184,7 @@ $cursor: #fff;
   .show-pwd {
     position: absolute;
     right: 10px;
+    top: 7px;
     font-size: 16px;
     color: $dark_gray;
     cursor: pointer;

@@ -2,7 +2,7 @@
  * @Author: xujian
  * @Date: 2021-12-08 20:30:46
  * @LastEditors: xujian
- * @LastEditTime: 2021-12-17 23:41:41
+ * @LastEditTime: 2022-04-09 21:55:53
  * @Description:eslint规则
  * @FilePath: /imooc-admin/.eslintrc.js
  */
@@ -40,6 +40,7 @@ module.exports = {
         asyncArrow: 'always'
       }
     ],
-    'space-before-function-paren': 0
+    'space-before-function-paren': 0,
+    'no-undef': 0
   }
 }
