@@ -2,9 +2,9 @@
  * @Author: xujian
  * @Date: 2021-12-08 20:30:46
  * @LastEditors: xujian
- * @LastEditTime: 2022-04-09 21:55:53
+ * @LastEditTime: 2022-04-12 09:52:12
  * @Description:eslint规则
- * @FilePath: /imooc-admin/.eslintrc.js
+ * @FilePath: \imooc-admin\.eslintrc.js
  */
 // ESLINT配置文件遵循commonjs的导出规则，所导出的对象就是eslint的配置对象
 module.exports = {
@@ -40,7 +40,6 @@ module.exports = {
         asyncArrow: 'always'
       }
     ],
-    'space-before-function-paren': 0,
     'no-undef': 0
   }
 }

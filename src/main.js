@@ -2,7 +2,7 @@
  * @Author: xujian
  * @Date: 2021-12-07 10:57:32
  * @LastEditors: xujian
- * @LastEditTime: 2022-01-05 15:34:09
+ * @LastEditTime: 2022-04-12 09:50:10
  * @Description:项目入口文件
  * @FilePath: \imooc-admin\src\main.js
  */
@@ -31,3 +31,7 @@ installIcons(app)
 installFilter(app)
 installDirective(app)
 app.use(store).use(router).use(i18n).mount('#app')
+app.config.errorHandler = err => {
+  /* 处理错误 */
+  console.log(err)
+}

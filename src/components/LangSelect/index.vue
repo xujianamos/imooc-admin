@@ -32,7 +32,7 @@ defineProps({
   effect: {
     type: String,
     default: 'dark',
-    validator: function (value) {
+    validator: function(value) {
       // 这个值必须匹配下列字符串中的一个
       return ['dark', 'light'].indexOf(value) !== -1
     }
